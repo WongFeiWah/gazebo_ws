@@ -36,3 +36,19 @@ boost/filesystem.hpp
 comm/ZmqInterface.h
 /home/huang/gazebo_ws/src/comm/ZmqInterface.h
 
+/usr/local/include/zmq.h
+errno.h
+-
+stddef.h
+-
+stdio.h
+-
+winsock2.h
+-
+inttypes.h
+-
+stdint.h
+-
+poll.h
+-
+

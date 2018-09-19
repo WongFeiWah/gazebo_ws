@@ -4,7 +4,9 @@
 CMakeFiles/cleanpack_ui.dir/src/cleanpack_ui/cleanpack_ui.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/cleanpack_ui.dir/src/cleanpack_ui/cleanpack_ui.cpp.o: ../src/comm/cleanpack_struct.h
 CMakeFiles/cleanpack_ui.dir/src/cleanpack_ui/cleanpack_ui.cpp.o: ../src/cleanpack_ui/cleanpack_ui.cpp
+CMakeFiles/cleanpack_ui.dir/src/cleanpack_ui/cleanpack_ui.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.cpp
 CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.h
+CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o: /usr/local/include/zmq.h
 

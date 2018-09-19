@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o"
+  "CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o"
   "libcleanpack_diff_driver.pdb"
   "libcleanpack_diff_driver.so"
 )

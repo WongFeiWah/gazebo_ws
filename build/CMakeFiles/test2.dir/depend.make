@@ -3,7 +3,9 @@
 
 CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.cpp
 CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.h
+CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/test2.dir/src/test2.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/test2.dir/src/test2.cpp.o: ../src/test2.cpp
+CMakeFiles/test2.dir/src/test2.cpp.o: /usr/local/include/zmq.h
 

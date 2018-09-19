@@ -68,3 +68,19 @@ boost/thread.hpp
 boost/filesystem.hpp
 -
 
+/usr/local/include/zmq.h
+errno.h
+-
+stddef.h
+-
+stdio.h
+-
+winsock2.h
+-
+inttypes.h
+-
+stdint.h
+-
+poll.h
+-
+

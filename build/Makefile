@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/huang/gazebo_ws/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/cmake-3.8.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/cmake-3.8.2/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named test2
+
+# Build rule for target.
+test2: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test2
+.PHONY : test2
+
+# fast build rule for target.
+test2/fast:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/build
+.PHONY : test2/fast
+
+#=============================================================================
 # Target rules for targets named cleanpack_diff_driver
 
 # Build rule for target.
@@ -137,17 +150,17 @@ cleanpack_ui/fast:
 .PHONY : cleanpack_ui/fast
 
 #=============================================================================
-# Target rules for targets named test2
+# Target rules for targets named cleanpack_lidar
 
 # Build rule for target.
-test2: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test2
-.PHONY : test2
+cleanpack_lidar: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cleanpack_lidar
+.PHONY : cleanpack_lidar
 
 # fast build rule for target.
-test2/fast:
-	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/build
-.PHONY : test2/fast
+cleanpack_lidar/fast:
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/build
+.PHONY : cleanpack_lidar/fast
 
 #=============================================================================
 # Target rules for targets named test1
@@ -195,8 +208,10 @@ src/comm/ZmqInterface.o: src/comm/ZmqInterface.cpp.o
 
 # target to build an object file
 src/comm/ZmqInterface.cpp.o:
-	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o
 .PHONY : src/comm/ZmqInterface.cpp.o
 
@@ -206,8 +221,10 @@ src/comm/ZmqInterface.i: src/comm/ZmqInterface.cpp.i
 
 # target to preprocess a source file
 src/comm/ZmqInterface.cpp.i:
-	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.i
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.i
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.i
 .PHONY : src/comm/ZmqInterface.cpp.i
 
@@ -217,8 +234,10 @@ src/comm/ZmqInterface.s: src/comm/ZmqInterface.cpp.s
 
 # target to generate assembly for a file
 src/comm/ZmqInterface.cpp.s:
-	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.s
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.s
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.s
 .PHONY : src/comm/ZmqInterface.cpp.s
 
@@ -248,6 +267,33 @@ src/plugin/cleanpack_diff_driver.s: src/plugin/cleanpack_diff_driver.cc.s
 src/plugin/cleanpack_diff_driver.cc.s:
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.s
 .PHONY : src/plugin/cleanpack_diff_driver.cc.s
+
+src/plugin/cleanpack_lidar.o: src/plugin/cleanpack_lidar.cc.o
+
+.PHONY : src/plugin/cleanpack_lidar.o
+
+# target to build an object file
+src/plugin/cleanpack_lidar.cc.o:
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o
+.PHONY : src/plugin/cleanpack_lidar.cc.o
+
+src/plugin/cleanpack_lidar.i: src/plugin/cleanpack_lidar.cc.i
+
+.PHONY : src/plugin/cleanpack_lidar.i
+
+# target to preprocess a source file
+src/plugin/cleanpack_lidar.cc.i:
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.i
+.PHONY : src/plugin/cleanpack_lidar.cc.i
+
+src/plugin/cleanpack_lidar.s: src/plugin/cleanpack_lidar.cc.s
+
+.PHONY : src/plugin/cleanpack_lidar.s
+
+# target to generate assembly for a file
+src/plugin/cleanpack_lidar.cc.s:
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.s
+.PHONY : src/plugin/cleanpack_lidar.cc.s
 
 src/test1.o: src/test1.cpp.o
 
@@ -311,9 +357,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... test2"
 	@echo "... cleanpack_diff_driver"
 	@echo "... cleanpack_ui"
-	@echo "... test2"
+	@echo "... cleanpack_lidar"
 	@echo "... test1"
 	@echo "... src/cleanpack_ui/cleanpack_ui.o"
 	@echo "... src/cleanpack_ui/cleanpack_ui.i"
@@ -324,6 +371,9 @@ help:
 	@echo "... src/plugin/cleanpack_diff_driver.o"
 	@echo "... src/plugin/cleanpack_diff_driver.i"
 	@echo "... src/plugin/cleanpack_diff_driver.s"
+	@echo "... src/plugin/cleanpack_lidar.o"
+	@echo "... src/plugin/cleanpack_lidar.i"
+	@echo "... src/plugin/cleanpack_lidar.s"
 	@echo "... src/test1.o"
 	@echo "... src/test1.i"
 	@echo "... src/test1.s"

@@ -17,6 +17,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/include/OGRE"
   "/usr/include/OGRE/Terrain"
   "/usr/include/OGRE/Paging"
+  "/usr/local/include"
   "../src"
   "../src/comm"
   "../src/plugin"

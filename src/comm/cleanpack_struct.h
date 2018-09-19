@@ -25,8 +25,8 @@ typedef struct
 typedef struct
 {
    uint8_t isAcc;
-   uint16_t x;
-   uint16_t z;
+   int16_t x;
+   int16_t z;
 }CP_CMDVEL;
 
 #pragma pack(pop)

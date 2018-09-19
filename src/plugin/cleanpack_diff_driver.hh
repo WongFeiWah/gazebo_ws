@@ -11,6 +11,7 @@
 // Boost
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
+#include <comm/ZmqInterface.h>
 
 namespace gazebo {
     
@@ -37,7 +38,7 @@ namespace gazebo {
     private:
         void getWheelVelocities();
         void UpdateOdometryEncoder();
-        void cmdVelCallback ( const void *data );
+        void cmdVelCallback ( void *param, const uint8_t *data, uint32_t len);
         
         
         physics::ModelPtr parent;
@@ -55,6 +56,7 @@ namespace gazebo {
         std::string tf_prefix_;
         
         boost::mutex lock;
+        ZmqInterface *mControlInterface;
         
         std::string robot_namespace_;
         std::string command_topic_;

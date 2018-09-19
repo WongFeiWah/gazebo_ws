@@ -28,6 +28,7 @@ namespace gazebo
     {
         
         this->parent = _parent;
+      printf("CleanpackDiffDriver Load.\n");
         /*
         gazebo_ros_ = GazeboRosPtr ( new GazeboRos ( _parent, _sdf, "DiffDrive" ) );
         // Make sure the ROS node for Gazebo has already been initialized
@@ -60,8 +61,8 @@ namespace gazebo
         
         
         joints_.resize ( 2 );
-        joints_[LEFT] = parent->GetJoint("left_joint");
-        joints_[RIGHT] = parent->GetJoint("right_joint");
+        joints_[LEFT] = parent->GetJoint("left_wheel_joint");
+        joints_[RIGHT] = parent->GetJoint("right_wheel_joint");
 #if GAZEBO_MAJOR_VERSION > 2
         joints_[LEFT]->SetParam ( "fmax", 0, wheel_torque );
     joints_[RIGHT]->SetParam ( "fmax", 0, wheel_torque );
@@ -93,6 +94,11 @@ namespace gazebo
         // listen to the update event (broadcast every simulation iteration)
         this->update_connection_ =
                 event::Events::ConnectWorldUpdateBegin ( boost::bind ( &CleanpackDiffDriver::UpdateChild, this ) );
+
+
+        mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::RECV, 7888);
+        mControlInterface->setCallBack(&CleanpackDiffDriver::cmdVelCallback, this);
+        mControlInterface->Start();
         
     }
     
@@ -224,18 +230,22 @@ namespace gazebo
         lock.unlock();
     }
     
-    void CleanpackDiffDriver::cmdVelCallback ( const void *data )
+    void CleanpackDiffDriver::cmdVelCallback ( void *param, const uint8_t *data, uint32_t len)
     {
         boost::mutex::scoped_lock scoped_lock ( lock );
         CP_HENDER *header = (CP_HENDER*)data;
         assert(data != NULL);
+
         if( header->hender != HENDER_XX || header->type != CP_TYPE::TYPE_CMD_VEL){
             return;
         }
-        
+
         CP_CMDVEL *cmd = (CP_CMDVEL*)(data + sizeof(CP_HENDER));
-        x_ = cmd->x;
-        rot_ = cmd->z;
+        x_ = cmd->x/1000.0f;
+        rot_ = cmd->z/1000.0f;
+
+        //printf("cmd:%.2f  %.2f\n", x_, rot_);
+
         if(cmd->isAcc == 0){
             isAcc = false;
         }else{

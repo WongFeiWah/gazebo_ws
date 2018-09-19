@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -81,14 +81,40 @@ CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o.provi
 CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o.provides.build: CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o
 
 
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o: CMakeFiles/cleanpack_diff_driver.dir/flags.make
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o -c /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp > CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.i
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp -o CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.s
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.requires:
+
+.PHONY : CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.requires
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.provides: CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.provides.build
+.PHONY : CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.provides
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.provides.build: CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o
+
+
 # Object files for target cleanpack_diff_driver
 cleanpack_diff_driver_OBJECTS = \
-"CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o"
+"CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o" \
+"CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o"
 
 # External object files for target cleanpack_diff_driver
 cleanpack_diff_driver_EXTERNAL_OBJECTS =
 
 libcleanpack_diff_driver.so: CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o
+libcleanpack_diff_driver.so: CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o
 libcleanpack_diff_driver.so: CMakeFiles/cleanpack_diff_driver.dir/build.make
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libgazebo.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libgazebo_client.so
@@ -128,23 +154,23 @@ libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libignition-math2.so
-libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
-libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_system.so
+libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_thread.so
+libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
+libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
+libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
+libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_signals.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_regex.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_iostreams.so
-libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
-libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
-libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libprotobuf.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libsdformat.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libOgreMain.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 libcleanpack_diff_driver.so: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 libcleanpack_diff_driver.so: CMakeFiles/cleanpack_diff_driver.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libcleanpack_diff_driver.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libcleanpack_diff_driver.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cleanpack_diff_driver.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +179,7 @@ CMakeFiles/cleanpack_diff_driver.dir/build: libcleanpack_diff_driver.so
 .PHONY : CMakeFiles/cleanpack_diff_driver.dir/build
 
 CMakeFiles/cleanpack_diff_driver.dir/requires: CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o.requires
+CMakeFiles/cleanpack_diff_driver.dir/requires: CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o.requires
 
 .PHONY : CMakeFiles/cleanpack_diff_driver.dir/requires
 
