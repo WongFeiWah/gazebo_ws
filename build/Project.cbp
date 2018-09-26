@@ -305,6 +305,34 @@
 			<Option target="cleanpack_lidar"/>
 			<Option target="test1"/>
 		</Unit>
+		<Unit filename="/home/huang/gazebo_ws/src/comm/communication_port.cpp">
+			<Option target="test2"/>
+			<Option target="cleanpack_diff_driver"/>
+			<Option target="cleanpack_ui"/>
+			<Option target="cleanpack_lidar"/>
+			<Option target="test1"/>
+		</Unit>
+		<Unit filename="/home/huang/gazebo_ws/src/comm/communication_port.h">
+			<Option target="test2"/>
+			<Option target="cleanpack_diff_driver"/>
+			<Option target="cleanpack_ui"/>
+			<Option target="cleanpack_lidar"/>
+			<Option target="test1"/>
+		</Unit>
+		<Unit filename="/home/huang/gazebo_ws/src/comm/zmq_port.cpp">
+			<Option target="test2"/>
+			<Option target="cleanpack_diff_driver"/>
+			<Option target="cleanpack_ui"/>
+			<Option target="cleanpack_lidar"/>
+			<Option target="test1"/>
+		</Unit>
+		<Unit filename="/home/huang/gazebo_ws/src/comm/zmq_port.h">
+			<Option target="test2"/>
+			<Option target="cleanpack_diff_driver"/>
+			<Option target="cleanpack_ui"/>
+			<Option target="cleanpack_lidar"/>
+			<Option target="test1"/>
+		</Unit>
 		<Unit filename="/home/huang/gazebo_ws/src/plugin/cleanpack_diff_driver.cc">
 			<Option target="cleanpack_diff_driver"/>
 		</Unit>

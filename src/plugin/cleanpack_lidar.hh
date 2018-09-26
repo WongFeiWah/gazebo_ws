@@ -15,10 +15,11 @@
   *
  */
 
-#ifndef GAZEBO_ROS_LIDAR_HH
-#define GAZEBO_ROS_LIDAR_HH
+#ifndef CLEANPACK_LIDAR_HH
+#define CLEANPACK_LIDAR_HH
 
 #include <string>
+#include <vector>
 
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
@@ -30,10 +31,13 @@
 #include <gazebo/common/Events.hh>
 #include <gazebo/sensors/SensorTypes.hh>
 #include <gazebo/plugins/RayPlugin.hh>
+#include <comm/zmq_port.h>
+#include <comm/update_timer.h>
+#include <comm/lidar_package_protocol.h>
 
 namespace gazebo
 {
-  class CleanpackLidar : public RayPlugin
+  class CleanpackLidar : public SensorPlugin
   {
   public: CleanpackLidar();
 
@@ -45,13 +49,25 @@ namespace gazebo
   private: std::string world_name_;
   private: physics::WorldPtr world_;
   private: sensors::RaySensorPtr parent_ray_sensor_;
+  private: sensors::SensorPtr sensor_;
+
+  private: ZmqPort *mPort;
 
     // deferred load in case ros is blocking
   private: sdf::ElementPtr sdf;
+  private: std::string carrier_ip;
 
   private: gazebo::transport::NodePtr gazebo_node_;
   private: gazebo::transport::SubscriberPtr laser_scan_sub_;
   private: void OnScan(ConstLaserScanStampedPtr &_msg);
+  private: bool SendLidarData(ConstLaserScanStampedPtr &_msg);
+
+  private: int mLidarFrequency;
+
+  private: boost::thread thread;
+  private: boost::mutex lock;
+  private: std::vector<float> mScan;
+  private: gazebo::UpdateTimer mUpdateTimer;
 
   };
 }

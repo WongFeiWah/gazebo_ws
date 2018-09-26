@@ -5,6 +5,21 @@ CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInter
 CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o: /usr/local/include/zmq.h
 
+CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.cpp
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_defines.h
+CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.h
+CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
+CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: /usr/local/include/zmq.h
+
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/LidarProtocol.h
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/communication_port.h
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/lidar_package_protocol.h
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/update_timer.h
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/zmq_defines.h
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/comm/zmq_port.h
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/plugin/cleanpack_lidar.hh
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: ../src/plugin/cleanpack_lidar.cc
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/include/gazebo-7/gazebo/common/Animation.hh
@@ -271,4 +286,5 @@ CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/include/sdf
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/include/sdformat-4.0/sdf/sdf.hh
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/include/sdformat-4.0/sdf/sdf_config.h
 CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/include/sdformat-4.0/sdf/system_util.hh
+CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o: /usr/local/include/zmq.h
 

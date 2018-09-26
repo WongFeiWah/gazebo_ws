@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/cmake-3.8.2/bin/cmake-gui -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/cmake-3.8.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -241,6 +241,84 @@ src/comm/ZmqInterface.cpp.s:
 	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.s
 .PHONY : src/comm/ZmqInterface.cpp.s
 
+src/comm/communication_port.o: src/comm/communication_port.cpp.o
+
+.PHONY : src/comm/communication_port.o
+
+# target to build an object file
+src/comm/communication_port.cpp.o:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.o
+.PHONY : src/comm/communication_port.cpp.o
+
+src/comm/communication_port.i: src/comm/communication_port.cpp.i
+
+.PHONY : src/comm/communication_port.i
+
+# target to preprocess a source file
+src/comm/communication_port.cpp.i:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.i
+.PHONY : src/comm/communication_port.cpp.i
+
+src/comm/communication_port.s: src/comm/communication_port.cpp.s
+
+.PHONY : src/comm/communication_port.s
+
+# target to generate assembly for a file
+src/comm/communication_port.cpp.s:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.s
+.PHONY : src/comm/communication_port.cpp.s
+
+src/comm/zmq_port.o: src/comm/zmq_port.cpp.o
+
+.PHONY : src/comm/zmq_port.o
+
+# target to build an object file
+src/comm/zmq_port.cpp.o:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o
+.PHONY : src/comm/zmq_port.cpp.o
+
+src/comm/zmq_port.i: src/comm/zmq_port.cpp.i
+
+.PHONY : src/comm/zmq_port.i
+
+# target to preprocess a source file
+src/comm/zmq_port.cpp.i:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.i
+.PHONY : src/comm/zmq_port.cpp.i
+
+src/comm/zmq_port.s: src/comm/zmq_port.cpp.s
+
+.PHONY : src/comm/zmq_port.s
+
+# target to generate assembly for a file
+src/comm/zmq_port.cpp.s:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.s
+.PHONY : src/comm/zmq_port.cpp.s
+
 src/plugin/cleanpack_diff_driver.o: src/plugin/cleanpack_diff_driver.cc.o
 
 .PHONY : src/plugin/cleanpack_diff_driver.o
@@ -368,6 +446,12 @@ help:
 	@echo "... src/comm/ZmqInterface.o"
 	@echo "... src/comm/ZmqInterface.i"
 	@echo "... src/comm/ZmqInterface.s"
+	@echo "... src/comm/communication_port.o"
+	@echo "... src/comm/communication_port.i"
+	@echo "... src/comm/communication_port.s"
+	@echo "... src/comm/zmq_port.o"
+	@echo "... src/comm/zmq_port.i"
+	@echo "... src/comm/zmq_port.s"
 	@echo "... src/plugin/cleanpack_diff_driver.o"
 	@echo "... src/plugin/cleanpack_diff_driver.i"
 	@echo "... src/plugin/cleanpack_diff_driver.s"

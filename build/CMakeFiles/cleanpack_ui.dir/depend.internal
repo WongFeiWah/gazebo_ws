@@ -10,3 +10,12 @@ CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o
  /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp
  /home/huang/gazebo_ws/src/comm/ZmqInterface.h
  /usr/local/include/zmq.h
+CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.o
+ ../src/comm/communication_port.h
+ /home/huang/gazebo_ws/src/comm/communication_port.cpp
+CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.o
+ ../src/comm/communication_port.h
+ ../src/comm/zmq_defines.h
+ ../src/comm/zmq_port.h
+ /home/huang/gazebo_ws/src/comm/zmq_port.cpp
+ /usr/local/include/zmq.h

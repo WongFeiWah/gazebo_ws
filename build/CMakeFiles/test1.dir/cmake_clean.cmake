@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/test1.dir/src/test1.cpp.o"
   "CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o"
+  "CMakeFiles/test1.dir/src/comm/communication_port.cpp.o"
+  "CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o"
   "test1.pdb"
   "test1"
 )

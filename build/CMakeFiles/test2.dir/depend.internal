@@ -5,6 +5,15 @@ CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o
  /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp
  /home/huang/gazebo_ws/src/comm/ZmqInterface.h
  /usr/local/include/zmq.h
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o
+ ../src/comm/communication_port.h
+ /home/huang/gazebo_ws/src/comm/communication_port.cpp
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o
+ ../src/comm/communication_port.h
+ ../src/comm/zmq_defines.h
+ ../src/comm/zmq_port.h
+ /home/huang/gazebo_ws/src/comm/zmq_port.cpp
+ /usr/local/include/zmq.h
 CMakeFiles/test2.dir/src/test2.cpp.o
  /home/huang/gazebo_ws/src/comm/ZmqInterface.h
  /home/huang/gazebo_ws/src/test2.cpp

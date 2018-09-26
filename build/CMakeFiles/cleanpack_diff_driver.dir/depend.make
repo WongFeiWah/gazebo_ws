@@ -5,6 +5,15 @@ CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/Zm
 CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o: /usr/local/include/zmq.h
 
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.cpp
+
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_defines.h
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.h
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
+CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o: /usr/local/include/zmq.h
+
 CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o: ../src/comm/ZmqInterface.h
 CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o: ../src/comm/cleanpack_struct.h
 CMakeFiles/cleanpack_diff_driver.dir/src/plugin/cleanpack_diff_driver.cc.o: ../src/plugin/cleanpack_diff_driver.cc

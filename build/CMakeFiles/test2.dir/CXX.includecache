@@ -6,6 +6,38 @@
 
 #IncludeRegexTransform: 
 
+../src/comm/communication_port.h
+stdint.h
+-
+string
+-
+
+../src/comm/zmq_defines.h
+
+../src/comm/zmq_port.h
+thread
+-
+communication_port.h
+-
+zmq_defines.h
+-
+cstring
+-
+zmq.h
+-
+string
+-
+sstream
+-
+boost/function.hpp
+-
+boost/bind.hpp
+-
+boost/thread.hpp
+-
+boost/filesystem.hpp
+-
+
 /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp
 ZmqInterface.h
 /home/huang/gazebo_ws/src/comm/ZmqInterface.h
@@ -30,6 +62,14 @@ boost/bind.hpp
 boost/thread.hpp
 -
 boost/filesystem.hpp
+-
+
+/home/huang/gazebo_ws/src/comm/communication_port.cpp
+comm/communication_port.h
+-
+
+/home/huang/gazebo_ws/src/comm/zmq_port.cpp
+zmq_port.h
 -
 
 /home/huang/gazebo_ws/src/test2.cpp

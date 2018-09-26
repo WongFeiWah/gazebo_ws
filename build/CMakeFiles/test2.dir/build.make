@@ -105,16 +105,68 @@ CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o.provides: CMakeFiles/test2.dir/
 CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o.provides.build: CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o
 
 
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o: CMakeFiles/test2.dir/flags.make
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/test2.dir/src/comm/communication_port.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test2.dir/src/comm/communication_port.cpp.o -c /home/huang/gazebo_ws/src/comm/communication_port.cpp
+
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test2.dir/src/comm/communication_port.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/communication_port.cpp > CMakeFiles/test2.dir/src/comm/communication_port.cpp.i
+
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test2.dir/src/comm/communication_port.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/communication_port.cpp -o CMakeFiles/test2.dir/src/comm/communication_port.cpp.s
+
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.requires:
+
+.PHONY : CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.requires
+
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.provides: CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.provides.build
+.PHONY : CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.provides
+
+CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.provides.build: CMakeFiles/test2.dir/src/comm/communication_port.cpp.o
+
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o: CMakeFiles/test2.dir/flags.make
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o -c /home/huang/gazebo_ws/src/comm/zmq_port.cpp
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test2.dir/src/comm/zmq_port.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/zmq_port.cpp > CMakeFiles/test2.dir/src/comm/zmq_port.cpp.i
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test2.dir/src/comm/zmq_port.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/zmq_port.cpp -o CMakeFiles/test2.dir/src/comm/zmq_port.cpp.s
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.requires:
+
+.PHONY : CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.requires
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.provides: CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.provides.build
+.PHONY : CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.provides
+
+CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.provides.build: CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o
+
+
 # Object files for target test2
 test2_OBJECTS = \
 "CMakeFiles/test2.dir/src/test2.cpp.o" \
-"CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o"
+"CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o" \
+"CMakeFiles/test2.dir/src/comm/communication_port.cpp.o" \
+"CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o"
 
 # External object files for target test2
 test2_EXTERNAL_OBJECTS =
 
 test2: CMakeFiles/test2.dir/src/test2.cpp.o
 test2: CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o
+test2: CMakeFiles/test2.dir/src/comm/communication_port.cpp.o
+test2: CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o
 test2: CMakeFiles/test2.dir/build.make
 test2: /usr/lib/x86_64-linux-gnu/libboost_system.so
 test2: /usr/lib/x86_64-linux-gnu/libboost_thread.so
@@ -122,7 +174,7 @@ test2: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 test2: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 test2: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 test2: CMakeFiles/test2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable test2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable test2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -132,6 +184,8 @@ CMakeFiles/test2.dir/build: test2
 
 CMakeFiles/test2.dir/requires: CMakeFiles/test2.dir/src/test2.cpp.o.requires
 CMakeFiles/test2.dir/requires: CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o.requires
+CMakeFiles/test2.dir/requires: CMakeFiles/test2.dir/src/comm/communication_port.cpp.o.requires
+CMakeFiles/test2.dir/requires: CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o.requires
 
 .PHONY : CMakeFiles/test2.dir/requires
 

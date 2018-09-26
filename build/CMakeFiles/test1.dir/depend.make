@@ -5,6 +5,15 @@ CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.cpp
 CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o: /usr/local/include/zmq.h
 
+CMakeFiles/test1.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/test1.dir/src/comm/communication_port.cpp.o: ../src/comm/communication_port.cpp
+
+CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: ../src/comm/communication_port.h
+CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_defines.h
+CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.h
+CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
+CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: /usr/local/include/zmq.h
+
 CMakeFiles/test1.dir/src/test1.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/test1.dir/src/test1.cpp.o: ../src/test1.cpp
 CMakeFiles/test1.dir/src/test1.cpp.o: /usr/local/include/zmq.h

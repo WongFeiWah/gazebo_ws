@@ -40,6 +40,8 @@
 
 namespace gazebo
 {
+  // Register this plugin with the simulator
+  GZ_REGISTER_SENSOR_PLUGIN(CleanpackLidar)
   // Constructor
   CleanpackLidar::CleanpackLidar()
   {
@@ -54,38 +56,92 @@ namespace gazebo
   // Load the controller
   void CleanpackLidar::Load(sensors::SensorPtr _parent, sdf::ElementPtr _sdf)
   {
-    printf("Lidar Load .\n");
-    // load plugin
-    RayPlugin::Load(_parent, this->sdf);
     // Get the world name.
     std::string worldName = _parent->WorldName();
     this->world_ = physics::get_world(worldName);
     // save pointers
     this->sdf = _sdf;
-
-    using std::dynamic_pointer_cast;
-    this->parent_ray_sensor_ = dynamic_pointer_cast<sensors::RaySensor>(_parent);
-
-    if (!this->parent_ray_sensor_)
-      gzthrow("CleanpackLidar controller requires a Ray Sensor as its parent");
+    sensor_ = _parent;
+    mLidarFrequency = 6;
+    mPort = NULL;
 
     this->gazebo_node_ = gazebo::transport::NodePtr(new gazebo::transport::Node());
     this->gazebo_node_->Init(this->world_name_);
-    this->laser_scan_sub_ = this->gazebo_node_->Subscribe(this->parent_ray_sensor_->Topic(),
+    this->laser_scan_sub_ = this->gazebo_node_->Subscribe(this->sensor_->GetTopic(),
                                   &CleanpackLidar::OnScan, this);
     // connect Update function
-   /* updateTimer.setUpdateRate(10.0);
-    updateTimer.Load(world, _sdf);
-    updateConnection = updateTimer.Connect(boost::bind(&CleanpackLidar::Update, this));*/
-    //gzmsg("Lidar Load.");
-    this->parent_ray_sensor_->SetActive(false);
+
+    //mPort = new ZmqPort();
+    char *pathvar = getenv("CARRIER_IP");
+    if(pathvar != NULL) {
+      carrier_ip = pathvar;
+    }else{
+      carrier_ip = "127.0.0.1";
+    }
+    printf("carrier lidar IP is : %s\n", pathvar);
+    this->sensor_->SetActive(true);
+    printf("Lidar Load.\n");
 
   }
+
+
+  bool CleanpackLidar::SendLidarData(ConstLaserScanStampedPtr &_msg){
+    LidarFrameSeg frame;
+    uint8_t *ptr = (uint8_t*)&frame;
+    uint8_t crc = 0;
+    int sleep_time = mLidarFrequency;
+    frame.header = 0x54;
+    frame.speed = this->mLidarFrequency*360;
+    frame.version_and_length = 12;
+    if(_msg->scan().count() < LIDAR_RESOLUTION) {
+      return false;
+    }
+
+    for (int j = 0; j < LIDAR_RESOLUTION;) {
+      frame.start_angle = j*100;
+      for (int i = 0; i < ANGLE_PER_PACK; ++i) {
+        frame.points[i].distance = (unsigned short)(_msg->scan().ranges(j)*1000);
+        if(_msg->scan().intensities(j) <= 1.0f || _msg->scan().intensities(j) >= 255.0f){
+          frame.points[i].confidence = 255;
+        }else{
+          frame.points[i].confidence = _msg->scan().intensities(j);
+        }
+        ++j;
+      }
+
+      frame.end_angle = (j-1)*100;//( j==LIDAR_RESOLUTION ? 0 : (j-1)*100);
+      //frame.timestamp = NowTime();
+
+      crc = 0;
+      for (uint64_t i = 0; i < (sizeof(LidarFrameSeg)-1); ++i) {
+        crc = crc_table[(crc ^ ptr[i]) & 0xff];
+      }
+      frame.crc8 = crc;
+
+      if(mPort != NULL && mPort->IsOpened() && sleep_time != 0){
+        mPort->Send((const uint8_t *) &frame, sizeof(LidarFrameSeg));
+        usleep(27778/sleep_time);
+
+      }else{
+        return false;
+      }
+    }
+    return true;
+  }
+
   void CleanpackLidar::OnScan(ConstLaserScanStampedPtr &_msg)
   {
-    gzmsg << "laser masg." << std::endl;
-    //printf("laser masg.\n");
+    //gzmsg << "laser masg." << std::endl;
+    //printf("laser masg. %d\n", _msg->scan().count());
+    //boost::mutex::scoped_lock scoped_lock(lock);
+    if(!lock.try_lock()) return;
+    SendLidarData(_msg);
+    /*mScan.clear();
+    mScan.resize(_msg->scan().count());
+    std::copy(_msg->scan().ranges().begin()
+    ,_msg->scan().ranges().end()
+    ,mScan.begin());*/
+    lock.unlock();
   }
-// Register this plugin with the simulator
-  GZ_REGISTER_SENSOR_PLUGIN(CleanpackLidar)
+
 }
