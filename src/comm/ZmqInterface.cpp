@@ -24,6 +24,7 @@ ZmqInterface::ZmqInterface(ZMQ_PP_TYPE type, int port){
     }else{
         if( this->InitRecsSock() == false) return;
     }
+    callbackParam = NULL;
     isStop = false;
 }
 
@@ -123,7 +124,7 @@ bool ZmqInterface::Start(){
         {
             int len = zmq_recv(this_->mZmqRecv, buffer, 1024, 0);
             if(len > 0){
-                this_->mProcFunc(NULL, buffer, len);
+                this_->mProcFunc(this_->callbackParam, buffer, len);
             }
         }
     },this);

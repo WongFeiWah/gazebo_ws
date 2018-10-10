@@ -15,6 +15,7 @@
 #include <boost/bind.hpp>
 #include <boost/thread.hpp>
 #include <boost/filesystem.hpp>
+#include <zmq_defines.h>
 
 enum ZMQ_PP_TYPE{
     SEND=0,
@@ -26,6 +27,7 @@ typedef boost::function<void(void *, const uint8_t *, uint32_t)>  MsgProcFunc;
 class ZmqInterface{
 private:
     MsgProcFunc mProcFunc;
+    void *callbackParam;
     boost::mutex lock;
 public:
     ZmqInterface(ZMQ_PP_TYPE type, int port);
@@ -35,11 +37,13 @@ public:
     bool Start();
     
     template<class T>
-    bool setCallBack( void(T::*fp)(void *, const uint8_t *, uint32_t), T* obj ){
+    bool setCallBack( void(T::*fp)(void *, const uint8_t *, uint32_t), T* obj, void *param = NULL){
         if( this->mType != ZMQ_PP_TYPE::RECV ){
             return false;
         }
         this->mProcFunc = boost::bind(fp, obj, _1, _2, _3);
+        if( param == NULL ) callbackParam = obj;
+        else callbackParam = param;
         return true;
     };
 private:

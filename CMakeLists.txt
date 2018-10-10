@@ -17,6 +17,7 @@ include_directories(
         src
         src/comm
         src/plugin
+        src/cleanpack_mcu
 )
 
 link_directories(
@@ -27,6 +28,7 @@ link_directories(
 list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 
 file(GLOB COMM_CPP_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/comm/*.cpp)
+file(GLOB MCU_CPP_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/cleanpack_mcu/*.cpp)
 
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall -Wextra -pthread -lzmq")
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pthread -lzmq")
@@ -43,14 +45,20 @@ target_link_libraries(cleanpack_diff_driver ${GAZEBO_LIBRARIES} ${Boost_LIBRARIE
 add_library(cleanpack_lidar SHARED src/plugin/cleanpack_lidar.cc ${COMM_CPP_PATH})
 target_link_libraries(cleanpack_lidar ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
 
+add_library(cleanpack_collider SHARED src/plugin/cleanpack_collider.cc ${COMM_CPP_PATH})
+target_link_libraries(cleanpack_collider ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
+
 ##==========================================================================
 ##   exec
 ##==========================================================================
 add_executable(cleanpack_ui src/cleanpack_ui/cleanpack_ui.cpp ${COMM_CPP_PATH})
-target_link_libraries(cleanpack_ui ${Zmq_LIBRARIES} ${Boost_LIBRARIES} zmq)
+target_link_libraries(cleanpack_ui ${Boost_LIBRARIES} zmq)
+
+add_executable(cleanpack_mcu ${MCU_CPP_PATH} ${COMM_CPP_PATH})
+target_link_libraries(cleanpack_mcu ${Boost_LIBRARIES} zmq)
 
 add_executable(test1 src/test1.cpp ${COMM_CPP_PATH})
-target_link_libraries(test1 ${Zmq_LIBRARIES} ${Boost_LIBRARIES} zmq)
+target_link_libraries(test1 ${Boost_LIBRARIES} zmq)
 
 add_executable(test2 src/test2.cpp ${COMM_CPP_PATH})
-target_link_libraries(test2 ${Zmq_LIBRARIES} ${Boost_LIBRARIES} zmq)
+target_link_libraries(test2 ${Boost_LIBRARIES} zmq)

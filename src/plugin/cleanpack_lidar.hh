@@ -60,9 +60,10 @@ namespace gazebo
   private: gazebo::transport::NodePtr gazebo_node_;
   private: gazebo::transport::SubscriberPtr laser_scan_sub_;
   private: void OnScan(ConstLaserScanStampedPtr &_msg);
+  private: void OnCarrier(void *param, const uint8_t *data, uint32_t len);
   private: bool SendLidarData(ConstLaserScanStampedPtr &_msg);
 
-  private: int mLidarFrequency;
+  private: unsigned short mLidarFrequency;
 
   private: boost::thread thread;
   private: boost::mutex lock;

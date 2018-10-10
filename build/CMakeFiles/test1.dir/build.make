@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -129,9 +129,57 @@ CMakeFiles/test1.dir/src/comm/communication_port.cpp.o.provides: CMakeFiles/test
 CMakeFiles/test1.dir/src/comm/communication_port.cpp.o.provides.build: CMakeFiles/test1.dir/src/comm/communication_port.cpp.o
 
 
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o: CMakeFiles/test1.dir/flags.make
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o: ../src/comm/lidar_package_protocol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o -c /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp
+
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp > CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.i
+
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp -o CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.s
+
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.requires:
+
+.PHONY : CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.requires
+
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.provides: CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.provides.build
+.PHONY : CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.provides
+
+CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.provides.build: CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o
+
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o: CMakeFiles/test1.dir/flags.make
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o: ../src/comm/mcu_package_protocol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o -c /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp > CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.i
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp -o CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.s
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.requires:
+
+.PHONY : CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.requires
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.provides: CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.requires
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.provides.build
+.PHONY : CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.provides
+
+CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.provides.build: CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o
+
+
 CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: CMakeFiles/test1.dir/flags.make
 CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o -c /home/huang/gazebo_ws/src/comm/zmq_port.cpp
 
 CMakeFiles/test1.dir/src/comm/zmq_port.cpp.i: cmake_force
@@ -158,6 +206,8 @@ test1_OBJECTS = \
 "CMakeFiles/test1.dir/src/test1.cpp.o" \
 "CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o" \
 "CMakeFiles/test1.dir/src/comm/communication_port.cpp.o" \
+"CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o" \
+"CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o" \
 "CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o"
 
 # External object files for target test1
@@ -166,6 +216,8 @@ test1_EXTERNAL_OBJECTS =
 test1: CMakeFiles/test1.dir/src/test1.cpp.o
 test1: CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o
 test1: CMakeFiles/test1.dir/src/comm/communication_port.cpp.o
+test1: CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o
+test1: CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o
 test1: CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o
 test1: CMakeFiles/test1.dir/build.make
 test1: /usr/lib/x86_64-linux-gnu/libboost_system.so
@@ -174,7 +226,7 @@ test1: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 test1: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 test1: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 test1: CMakeFiles/test1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable test1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable test1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/test1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -185,6 +237,8 @@ CMakeFiles/test1.dir/build: test1
 CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/test1.cpp.o.requires
 CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o.requires
 CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/comm/communication_port.cpp.o.requires
+CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o.requires
+CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o.requires
 CMakeFiles/test1.dir/requires: CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o.requires
 
 .PHONY : CMakeFiles/test1.dir/requires

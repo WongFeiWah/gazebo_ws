@@ -1,4 +1,3 @@
-
 #ifndef DIFFDRIVE_PLUGIN_HH
 #define DIFFDRIVE_PLUGIN_HH
 

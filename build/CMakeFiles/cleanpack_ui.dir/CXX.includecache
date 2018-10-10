@@ -6,6 +6,8 @@
 
 #IncludeRegexTransform: 
 
+../src/comm/LidarProtocol.h
+
 ../src/comm/ZmqInterface.h
 thread
 -
@@ -27,6 +29,8 @@ boost/thread.hpp
 -
 boost/filesystem.hpp
 -
+zmq_defines.h
+-
 
 ../src/comm/cleanpack_struct.h
 
@@ -34,6 +38,18 @@ boost/filesystem.hpp
 stdint.h
 -
 string
+-
+
+../src/comm/lidar_package_protocol.h
+inttypes.h
+-
+comm/LidarProtocol.h
+-
+
+../src/comm/mcu_package_protocol.h
+inttypes.h
+-
+mutex
 -
 
 ../src/comm/zmq_defines.h
@@ -99,9 +115,21 @@ boost/thread.hpp
 -
 boost/filesystem.hpp
 -
+zmq_defines.h
+-
 
 /home/huang/gazebo_ws/src/comm/communication_port.cpp
 comm/communication_port.h
+-
+
+/home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp
+comm/lidar_package_protocol.h
+/home/huang/gazebo_ws/src/comm/comm/lidar_package_protocol.h
+
+/home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp
+comm/mcu_package_protocol.h
+/home/huang/gazebo_ws/src/comm/comm/mcu_package_protocol.h
+string.h
 -
 
 /home/huang/gazebo_ws/src/comm/zmq_port.cpp

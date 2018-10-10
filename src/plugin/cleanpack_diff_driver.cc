@@ -241,8 +241,8 @@ namespace gazebo
         }
 
         CP_CMDVEL *cmd = (CP_CMDVEL*)(data + sizeof(CP_HENDER));
-        x_ = cmd->x/1000.0f;
-        rot_ = cmd->z/1000.0f;
+        x_ = cmd->v/1000.0f;
+        rot_ = cmd->w/1000.0f;
 
         //printf("cmd:%.2f  %.2f\n", x_, rot_);
 

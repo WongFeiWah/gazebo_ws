@@ -6,6 +6,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/huang/gazebo_ws/src/comm/ZmqInterface.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o"
   "/home/huang/gazebo_ws/src/comm/communication_port.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/comm/communication_port.cpp.o"
+  "/home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o"
+  "/home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o"
   "/home/huang/gazebo_ws/src/comm/zmq_port.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o"
   "/home/huang/gazebo_ws/src/test1.cpp" "/home/huang/gazebo_ws/build/CMakeFiles/test1.dir/src/test1.cpp.o"
   )
@@ -23,6 +25,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../src"
   "../src/comm"
   "../src/plugin"
+  "../src/cleanpack_mcu"
   )
 
 # Targets to which this target links.

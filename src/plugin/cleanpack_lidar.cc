@@ -16,9 +16,9 @@
  */
 
 /*
- * Desc: Ros Laser controller.
- * Author: Nathan Koenig
- * Date: 01 Feb 2007
+ * Desc: Laser controller.
+ * Author: WongFeiWah
+ * Date: 01 Feb 2018
  */
 
 #include <algorithm>
@@ -71,7 +71,9 @@ namespace gazebo
                                   &CleanpackLidar::OnScan, this);
     // connect Update function
 
-    //mPort = new ZmqPort();
+    mPort = new ZmqPort("127.0.0.1", SID_ROS_SIMULATION_LIDAR_TO_CARRIER, SID_ROS_SIMULATION_CARRIER_TO_LIDAR);
+    mPort->setCallBack(&CleanpackLidar::OnCarrier, this);
+    mPort->Start();
     char *pathvar = getenv("CARRIER_IP");
     if(pathvar != NULL) {
       carrier_ip = pathvar;
@@ -81,7 +83,7 @@ namespace gazebo
     printf("carrier lidar IP is : %s\n", pathvar);
     this->sensor_->SetActive(true);
     printf("Lidar Load.\n");
-
+    gzmsg << "Lidar Lodar" << "\n";
   }
 
 
@@ -119,9 +121,11 @@ namespace gazebo
       frame.crc8 = crc;
 
       if(mPort != NULL && mPort->IsOpened() && sleep_time != 0){
-        mPort->Send((const uint8_t *) &frame, sizeof(LidarFrameSeg));
+        if( mPort->Send((const uint8_t *) &frame, sizeof(LidarFrameSeg)) != sizeof(LidarFrameSeg) )
+        {
+          continue;
+        }
         usleep(27778/sleep_time);
-
       }else{
         return false;
       }
@@ -129,19 +133,19 @@ namespace gazebo
     return true;
   }
 
-  void CleanpackLidar::OnScan(ConstLaserScanStampedPtr &_msg)
-  {
-    //gzmsg << "laser masg." << std::endl;
-    //printf("laser masg. %d\n", _msg->scan().count());
-    //boost::mutex::scoped_lock scoped_lock(lock);
-    if(!lock.try_lock()) return;
+  void CleanpackLidar::OnScan(ConstLaserScanStampedPtr &_msg){
+    if( lock.try_lock() == false ){
+      return;
+    }
     SendLidarData(_msg);
-    /*mScan.clear();
-    mScan.resize(_msg->scan().count());
-    std::copy(_msg->scan().ranges().begin()
-    ,_msg->scan().ranges().end()
-    ,mScan.begin());*/
     lock.unlock();
+  }
+
+  void CleanpackLidar::OnCarrier(void *param, const uint8_t *data, uint32_t len){
+    if(len != sizeof(unsigned short)) return;
+    unsigned short hz = 6;
+    memcpy(&mLidarFrequency, data, sizeof(unsigned short));
+    //printf("CleanpackLidar::OnCarrier  %d\n", hz);
   }
 
 }

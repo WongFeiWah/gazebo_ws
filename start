@@ -4,7 +4,8 @@ exe_dir=`pwd`
 echo $exe_dir
 export GAZEBO_PLUGIN_PATH=$exe_dir/build:${GAZEBO_PLUGIN_PATH}
 export LD_LIBRARY_PATH=/usr/local/lib:${LD_LIBRARY_PATH}
-gzserver -e ode gazebo/world/cleanpack_room.world
+export CARRIER_IP="127.0.0.1"
+gzserver --verbose -e ode gazebo/world/cleanpack_room.world
 #gzclient
 #killall gzserver
 sleep 1

@@ -7399,6 +7399,18 @@
             </cylinder>
           </geometry>
         </collision>
+<!---->
+        <sensor type="contact" name="bady_contact">
+          <always_on>true</always_on>
+          <update_rate>20</update_rate>
+          <contact>
+              <collision>base_collision</collision>
+          </contact>
+          <plugin name="body_contact_controller" filename="libcleanpack_collider.so">
+            <mode>body</mode>
+            <collider_radius>0.175</collider_radius>
+          </plugin>
+        </sensor>
 
         <!-- caster*************************************************************** -->
         <visual name="caster_visual">

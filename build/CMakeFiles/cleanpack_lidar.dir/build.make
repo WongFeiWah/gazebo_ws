@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -129,9 +129,57 @@ CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o.provides: CMake
 CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o.provides.build: CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o
 
 
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o: CMakeFiles/cleanpack_lidar.dir/flags.make
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o: ../src/comm/lidar_package_protocol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o -c /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp > CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.i
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/lidar_package_protocol.cpp -o CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.s
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.requires:
+
+.PHONY : CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.requires
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.provides: CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.provides.build
+.PHONY : CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.provides
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.provides.build: CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o
+
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o: CMakeFiles/cleanpack_lidar.dir/flags.make
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o: ../src/comm/mcu_package_protocol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o -c /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp > CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.i
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/comm/mcu_package_protocol.cpp -o CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.s
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.requires:
+
+.PHONY : CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.requires
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.provides: CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.provides.build
+.PHONY : CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.provides
+
+CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.provides.build: CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o
+
+
 CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: CMakeFiles/cleanpack_lidar.dir/flags.make
 CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o -c /home/huang/gazebo_ws/src/comm/zmq_port.cpp
 
 CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.i: cmake_force
@@ -158,6 +206,8 @@ cleanpack_lidar_OBJECTS = \
 "CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o" \
 "CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o" \
 "CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o" \
+"CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o" \
+"CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o" \
 "CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o"
 
 # External object files for target cleanpack_lidar
@@ -166,6 +216,8 @@ cleanpack_lidar_EXTERNAL_OBJECTS =
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o
+libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o
+libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/build.make
 libcleanpack_lidar.so: /usr/lib/x86_64-linux-gnu/libgazebo.so
@@ -222,7 +274,7 @@ libcleanpack_lidar.so: /usr/lib/x86_64-linux-gnu/libOgreMain.so
 libcleanpack_lidar.so: /usr/lib/x86_64-linux-gnu/libOgreTerrain.so
 libcleanpack_lidar.so: /usr/lib/x86_64-linux-gnu/libOgrePaging.so
 libcleanpack_lidar.so: CMakeFiles/cleanpack_lidar.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX shared library libcleanpack_lidar.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libcleanpack_lidar.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/cleanpack_lidar.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -233,6 +285,8 @@ CMakeFiles/cleanpack_lidar.dir/build: libcleanpack_lidar.so
 CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/plugin/cleanpack_lidar.cc.o.requires
 CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o.requires
 CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o.requires
+CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o.requires
+CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o.requires
 CMakeFiles/cleanpack_lidar.dir/requires: CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o.requires
 
 .PHONY : CMakeFiles/cleanpack_lidar.dir/requires

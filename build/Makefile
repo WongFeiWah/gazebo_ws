@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
+CMAKE_COMMAND = /usr/local/bin/cmake
 
 # The command to remove a file.
-RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
+RM = /usr/local/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/huang/gazebo_ws/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/opt/cmake-3.8.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
-	/opt/cmake-3.8.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -124,6 +124,32 @@ test2/fast:
 .PHONY : test2/fast
 
 #=============================================================================
+# Target rules for targets named test1
+
+# Build rule for target.
+test1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 test1
+.PHONY : test1
+
+# fast build rule for target.
+test1/fast:
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
+.PHONY : test1/fast
+
+#=============================================================================
+# Target rules for targets named cleanpack_collider
+
+# Build rule for target.
+cleanpack_collider: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cleanpack_collider
+.PHONY : cleanpack_collider
+
+# fast build rule for target.
+cleanpack_collider/fast:
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/build
+.PHONY : cleanpack_collider/fast
+
+#=============================================================================
 # Target rules for targets named cleanpack_diff_driver
 
 # Build rule for target.
@@ -150,6 +176,19 @@ cleanpack_ui/fast:
 .PHONY : cleanpack_ui/fast
 
 #=============================================================================
+# Target rules for targets named cleanpack_mcu
+
+# Build rule for target.
+cleanpack_mcu: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 cleanpack_mcu
+.PHONY : cleanpack_mcu
+
+# fast build rule for target.
+cleanpack_mcu/fast:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/build
+.PHONY : cleanpack_mcu/fast
+
+#=============================================================================
 # Target rules for targets named cleanpack_lidar
 
 # Build rule for target.
@@ -162,18 +201,113 @@ cleanpack_lidar/fast:
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/build
 .PHONY : cleanpack_lidar/fast
 
-#=============================================================================
-# Target rules for targets named test1
+src/cleanpack_mcu/CarrierCore.o: src/cleanpack_mcu/CarrierCore.cpp.o
 
-# Build rule for target.
-test1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 test1
-.PHONY : test1
+.PHONY : src/cleanpack_mcu/CarrierCore.o
 
-# fast build rule for target.
-test1/fast:
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/build
-.PHONY : test1/fast
+# target to build an object file
+src/cleanpack_mcu/CarrierCore.cpp.o:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.o
+.PHONY : src/cleanpack_mcu/CarrierCore.cpp.o
+
+src/cleanpack_mcu/CarrierCore.i: src/cleanpack_mcu/CarrierCore.cpp.i
+
+.PHONY : src/cleanpack_mcu/CarrierCore.i
+
+# target to preprocess a source file
+src/cleanpack_mcu/CarrierCore.cpp.i:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.i
+.PHONY : src/cleanpack_mcu/CarrierCore.cpp.i
+
+src/cleanpack_mcu/CarrierCore.s: src/cleanpack_mcu/CarrierCore.cpp.s
+
+.PHONY : src/cleanpack_mcu/CarrierCore.s
+
+# target to generate assembly for a file
+src/cleanpack_mcu/CarrierCore.cpp.s:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.s
+.PHONY : src/cleanpack_mcu/CarrierCore.cpp.s
+
+src/cleanpack_mcu/CarrierSensor.o: src/cleanpack_mcu/CarrierSensor.cpp.o
+
+.PHONY : src/cleanpack_mcu/CarrierSensor.o
+
+# target to build an object file
+src/cleanpack_mcu/CarrierSensor.cpp.o:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o
+.PHONY : src/cleanpack_mcu/CarrierSensor.cpp.o
+
+src/cleanpack_mcu/CarrierSensor.i: src/cleanpack_mcu/CarrierSensor.cpp.i
+
+.PHONY : src/cleanpack_mcu/CarrierSensor.i
+
+# target to preprocess a source file
+src/cleanpack_mcu/CarrierSensor.cpp.i:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.i
+.PHONY : src/cleanpack_mcu/CarrierSensor.cpp.i
+
+src/cleanpack_mcu/CarrierSensor.s: src/cleanpack_mcu/CarrierSensor.cpp.s
+
+.PHONY : src/cleanpack_mcu/CarrierSensor.s
+
+# target to generate assembly for a file
+src/cleanpack_mcu/CarrierSensor.cpp.s:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.s
+.PHONY : src/cleanpack_mcu/CarrierSensor.cpp.s
+
+src/cleanpack_mcu/Gazebo2Sensor.o: src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.o
+
+# target to build an object file
+src/cleanpack_mcu/Gazebo2Sensor.cpp.o:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+
+src/cleanpack_mcu/Gazebo2Sensor.i: src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.i
+
+# target to preprocess a source file
+src/cleanpack_mcu/Gazebo2Sensor.cpp.i:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+
+src/cleanpack_mcu/Gazebo2Sensor.s: src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.s
+
+# target to generate assembly for a file
+src/cleanpack_mcu/Gazebo2Sensor.cpp.s:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+
+src/cleanpack_mcu/cleanpack_mcu.o: src/cleanpack_mcu/cleanpack_mcu.cpp.o
+
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.o
+
+# target to build an object file
+src/cleanpack_mcu/cleanpack_mcu.cpp.o:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.cpp.o
+
+src/cleanpack_mcu/cleanpack_mcu.i: src/cleanpack_mcu/cleanpack_mcu.cpp.i
+
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.i
+
+# target to preprocess a source file
+src/cleanpack_mcu/cleanpack_mcu.cpp.i:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.i
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.cpp.i
+
+src/cleanpack_mcu/cleanpack_mcu.s: src/cleanpack_mcu/cleanpack_mcu.cpp.s
+
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.s
+
+# target to generate assembly for a file
+src/cleanpack_mcu/cleanpack_mcu.cpp.s:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.s
+.PHONY : src/cleanpack_mcu/cleanpack_mcu.cpp.s
 
 src/cleanpack_ui/cleanpack_ui.o: src/cleanpack_ui/cleanpack_ui.cpp.o
 
@@ -209,10 +343,12 @@ src/comm/ZmqInterface.o: src/comm/ZmqInterface.cpp.o
 # target to build an object file
 src/comm/ZmqInterface.cpp.o:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/ZmqInterface.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.o
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.o
 .PHONY : src/comm/ZmqInterface.cpp.o
 
 src/comm/ZmqInterface.i: src/comm/ZmqInterface.cpp.i
@@ -222,10 +358,12 @@ src/comm/ZmqInterface.i: src/comm/ZmqInterface.cpp.i
 # target to preprocess a source file
 src/comm/ZmqInterface.cpp.i:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/ZmqInterface.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.i
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.i
 .PHONY : src/comm/ZmqInterface.cpp.i
 
 src/comm/ZmqInterface.s: src/comm/ZmqInterface.cpp.s
@@ -235,10 +373,12 @@ src/comm/ZmqInterface.s: src/comm/ZmqInterface.cpp.s
 # target to generate assembly for a file
 src/comm/ZmqInterface.cpp.s:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/ZmqInterface.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/ZmqInterface.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/ZmqInterface.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/ZmqInterface.cpp.s
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/ZmqInterface.cpp.s
 .PHONY : src/comm/ZmqInterface.cpp.s
 
 src/comm/communication_port.o: src/comm/communication_port.cpp.o
@@ -248,10 +388,12 @@ src/comm/communication_port.o: src/comm/communication_port.cpp.o
 # target to build an object file
 src/comm/communication_port.cpp.o:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/communication_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.o
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.o
 .PHONY : src/comm/communication_port.cpp.o
 
 src/comm/communication_port.i: src/comm/communication_port.cpp.i
@@ -261,10 +403,12 @@ src/comm/communication_port.i: src/comm/communication_port.cpp.i
 # target to preprocess a source file
 src/comm/communication_port.cpp.i:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/communication_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.i
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.i
 .PHONY : src/comm/communication_port.cpp.i
 
 src/comm/communication_port.s: src/comm/communication_port.cpp.s
@@ -274,11 +418,103 @@ src/comm/communication_port.s: src/comm/communication_port.cpp.s
 # target to generate assembly for a file
 src/comm/communication_port.cpp.s:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/communication_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/communication_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/communication_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/communication_port.cpp.s
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/communication_port.cpp.s
 .PHONY : src/comm/communication_port.cpp.s
+
+src/comm/lidar_package_protocol.o: src/comm/lidar_package_protocol.cpp.o
+
+.PHONY : src/comm/lidar_package_protocol.o
+
+# target to build an object file
+src/comm/lidar_package_protocol.cpp.o:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/lidar_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.o
+.PHONY : src/comm/lidar_package_protocol.cpp.o
+
+src/comm/lidar_package_protocol.i: src/comm/lidar_package_protocol.cpp.i
+
+.PHONY : src/comm/lidar_package_protocol.i
+
+# target to preprocess a source file
+src/comm/lidar_package_protocol.cpp.i:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/lidar_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.i
+.PHONY : src/comm/lidar_package_protocol.cpp.i
+
+src/comm/lidar_package_protocol.s: src/comm/lidar_package_protocol.cpp.s
+
+.PHONY : src/comm/lidar_package_protocol.s
+
+# target to generate assembly for a file
+src/comm/lidar_package_protocol.cpp.s:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/lidar_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/lidar_package_protocol.cpp.s
+.PHONY : src/comm/lidar_package_protocol.cpp.s
+
+src/comm/mcu_package_protocol.o: src/comm/mcu_package_protocol.cpp.o
+
+.PHONY : src/comm/mcu_package_protocol.o
+
+# target to build an object file
+src/comm/mcu_package_protocol.cpp.o:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/mcu_package_protocol.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.o
+.PHONY : src/comm/mcu_package_protocol.cpp.o
+
+src/comm/mcu_package_protocol.i: src/comm/mcu_package_protocol.cpp.i
+
+.PHONY : src/comm/mcu_package_protocol.i
+
+# target to preprocess a source file
+src/comm/mcu_package_protocol.cpp.i:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/mcu_package_protocol.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.i
+.PHONY : src/comm/mcu_package_protocol.cpp.i
+
+src/comm/mcu_package_protocol.s: src/comm/mcu_package_protocol.cpp.s
+
+.PHONY : src/comm/mcu_package_protocol.s
+
+# target to generate assembly for a file
+src/comm/mcu_package_protocol.cpp.s:
+	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/mcu_package_protocol.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/mcu_package_protocol.cpp.s
+.PHONY : src/comm/mcu_package_protocol.cpp.s
 
 src/comm/zmq_port.o: src/comm/zmq_port.cpp.o
 
@@ -287,10 +523,12 @@ src/comm/zmq_port.o: src/comm/zmq_port.cpp.o
 # target to build an object file
 src/comm/zmq_port.cpp.o:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/zmq_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.o
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/zmq_port.cpp.o
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.o
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.o
 .PHONY : src/comm/zmq_port.cpp.o
 
 src/comm/zmq_port.i: src/comm/zmq_port.cpp.i
@@ -300,10 +538,12 @@ src/comm/zmq_port.i: src/comm/zmq_port.cpp.i
 # target to preprocess a source file
 src/comm/zmq_port.cpp.i:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/zmq_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.i
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/zmq_port.cpp.i
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.i
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.i
 .PHONY : src/comm/zmq_port.cpp.i
 
 src/comm/zmq_port.s: src/comm/zmq_port.cpp.s
@@ -313,11 +553,40 @@ src/comm/zmq_port.s: src/comm/zmq_port.cpp.s
 # target to generate assembly for a file
 src/comm/zmq_port.cpp.s:
 	$(MAKE) -f CMakeFiles/test2.dir/build.make CMakeFiles/test2.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/comm/zmq_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_diff_driver.dir/build.make CMakeFiles/cleanpack_diff_driver.dir/src/comm/zmq_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_ui.dir/build.make CMakeFiles/cleanpack_ui.dir/src/comm/zmq_port.cpp.s
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/comm/zmq_port.cpp.s
 	$(MAKE) -f CMakeFiles/cleanpack_lidar.dir/build.make CMakeFiles/cleanpack_lidar.dir/src/comm/zmq_port.cpp.s
-	$(MAKE) -f CMakeFiles/test1.dir/build.make CMakeFiles/test1.dir/src/comm/zmq_port.cpp.s
 .PHONY : src/comm/zmq_port.cpp.s
+
+src/plugin/cleanpack_collider.o: src/plugin/cleanpack_collider.cc.o
+
+.PHONY : src/plugin/cleanpack_collider.o
+
+# target to build an object file
+src/plugin/cleanpack_collider.cc.o:
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o
+.PHONY : src/plugin/cleanpack_collider.cc.o
+
+src/plugin/cleanpack_collider.i: src/plugin/cleanpack_collider.cc.i
+
+.PHONY : src/plugin/cleanpack_collider.i
+
+# target to preprocess a source file
+src/plugin/cleanpack_collider.cc.i:
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.i
+.PHONY : src/plugin/cleanpack_collider.cc.i
+
+src/plugin/cleanpack_collider.s: src/plugin/cleanpack_collider.cc.s
+
+.PHONY : src/plugin/cleanpack_collider.s
+
+# target to generate assembly for a file
+src/plugin/cleanpack_collider.cc.s:
+	$(MAKE) -f CMakeFiles/cleanpack_collider.dir/build.make CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.s
+.PHONY : src/plugin/cleanpack_collider.cc.s
 
 src/plugin/cleanpack_diff_driver.o: src/plugin/cleanpack_diff_driver.cc.o
 
@@ -436,10 +705,24 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... test2"
+	@echo "... test1"
+	@echo "... cleanpack_collider"
 	@echo "... cleanpack_diff_driver"
 	@echo "... cleanpack_ui"
+	@echo "... cleanpack_mcu"
 	@echo "... cleanpack_lidar"
-	@echo "... test1"
+	@echo "... src/cleanpack_mcu/CarrierCore.o"
+	@echo "... src/cleanpack_mcu/CarrierCore.i"
+	@echo "... src/cleanpack_mcu/CarrierCore.s"
+	@echo "... src/cleanpack_mcu/CarrierSensor.o"
+	@echo "... src/cleanpack_mcu/CarrierSensor.i"
+	@echo "... src/cleanpack_mcu/CarrierSensor.s"
+	@echo "... src/cleanpack_mcu/Gazebo2Sensor.o"
+	@echo "... src/cleanpack_mcu/Gazebo2Sensor.i"
+	@echo "... src/cleanpack_mcu/Gazebo2Sensor.s"
+	@echo "... src/cleanpack_mcu/cleanpack_mcu.o"
+	@echo "... src/cleanpack_mcu/cleanpack_mcu.i"
+	@echo "... src/cleanpack_mcu/cleanpack_mcu.s"
 	@echo "... src/cleanpack_ui/cleanpack_ui.o"
 	@echo "... src/cleanpack_ui/cleanpack_ui.i"
 	@echo "... src/cleanpack_ui/cleanpack_ui.s"
@@ -449,9 +732,18 @@ help:
 	@echo "... src/comm/communication_port.o"
 	@echo "... src/comm/communication_port.i"
 	@echo "... src/comm/communication_port.s"
+	@echo "... src/comm/lidar_package_protocol.o"
+	@echo "... src/comm/lidar_package_protocol.i"
+	@echo "... src/comm/lidar_package_protocol.s"
+	@echo "... src/comm/mcu_package_protocol.o"
+	@echo "... src/comm/mcu_package_protocol.i"
+	@echo "... src/comm/mcu_package_protocol.s"
 	@echo "... src/comm/zmq_port.o"
 	@echo "... src/comm/zmq_port.i"
 	@echo "... src/comm/zmq_port.s"
+	@echo "... src/plugin/cleanpack_collider.o"
+	@echo "... src/plugin/cleanpack_collider.i"
+	@echo "... src/plugin/cleanpack_collider.s"
 	@echo "... src/plugin/cleanpack_diff_driver.o"
 	@echo "... src/plugin/cleanpack_diff_driver.i"
 	@echo "... src/plugin/cleanpack_diff_driver.s"

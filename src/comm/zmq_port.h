@@ -22,6 +22,7 @@ typedef boost::function<void(void *, const uint8_t *, uint32_t)>  MsgProcFunc;
 class ZmqPort:public CommunicationPort
 {
 protected:
+  void InitZmq( char *send_ip, uint32_t send_id, uint32_t recv_id );
   MsgProcFunc mProcFunc;
   uint8_t send_buffer[1024];
   
@@ -30,12 +31,11 @@ protected:
   void *mCallbackParam;
   std::thread *mZmqPortProcessThread;
   boost::mutex lock;
-
 	bool mStopProcessFlag;
 public:
   ZmqPort(char *send_ip, uint32_t send_id, uint32_t recv_id);
   ~ZmqPort();
-  void InitZmq( char *send_ip, uint32_t send_id, uint32_t recv_id );
+  
 
   template<class T>
   bool setCallBack( void(T::*fp)(void *, const uint8_t *, uint32_t), T* obj ){

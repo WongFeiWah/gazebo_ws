@@ -120,8 +120,8 @@ void CleanpackUINode::SendControl(float v, float w, bool isAcc){
     header->len = sizeof(CP_CMDVEL);
     header->type = CP_TYPE::TYPE_CMD_VEL;
     cmd->isAcc = isAcc;
-    cmd->x = v*1000;
-    cmd->z = w*1000;
+    cmd->v = v*1000;
+    cmd->w = w*1000;
     mControlInterface->send(buffer, sizeof(CP_HENDER)+sizeof(CP_CMDVEL));
 }
 

@@ -11,6 +11,13 @@
 enum CP_TYPE{
     NOP = 0,
     TYPE_CMD_VEL,
+    TYPE_ODOM,
+    TYPE_IMU,
+    TYPE_COLLIDER,
+
+
+
+    TYPE_END
 };
 
 #pragma pack(push, 1)
@@ -25,9 +32,22 @@ typedef struct
 typedef struct
 {
    uint8_t isAcc;
-   int16_t x;
-   int16_t z;
+   int16_t v;
+   int16_t w;
 }CP_CMDVEL;
+
+typedef struct
+{
+   int16_t x;
+   int16_t y;
+   int16_t z;
+
+   int16_t v;
+   int16_t w;
+
+   int32_t encoder_left;
+   int32_t encoder_right;
+}CP_ODOM;
 
 #pragma pack(pop)
 

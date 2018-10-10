@@ -34,7 +34,7 @@ void ZmqPort::InitZmq( char *send_ip, uint32_t send_id, uint32_t recv_id ){
   int hwm = 8;
   zmq_setsockopt(mZmqSend, ZMQ_SNDHWM, &hwm, sizeof(int));
   zmq_setsockopt(mZmqSend, ZMQ_RCVHWM, &hwm, sizeof(int));
-  int timeout = 10;
+  int timeout = 1;
   zmq_setsockopt(mZmqSend, ZMQ_SNDTIMEO, &timeout, sizeof(int));
   zmq_setsockopt(mZmqSend, ZMQ_RCVTIMEO, &timeout, sizeof(int));
   if(zmq_connect(mZmqSend, str.c_str()) != 0){
@@ -69,7 +69,11 @@ void ZmqPort::InitZmq( char *send_ip, uint32_t send_id, uint32_t recv_id ){
     perror("ZmqPort:zmq_setsockopt fail. ");
     return;
   }
-
+  printf("===========================\n");
+  printf("Zmq Init.\n");
+  printf("send : %s:%d\n",send_ip, send_id);
+  printf("recv : %s:%d\n",send_ip, recv_id);
+  printf("===========================\n");
 }
 
 ZmqPort::~ZmqPort() {
@@ -119,6 +123,7 @@ int32_t ZmqPort::Send(const uint8_t *data, int32_t len) {
   int slen = len;
   boost::mutex::scoped_lock scoped_lock(lock);
   memcpy(send_buffer, data, len);
+  //printf("send %d\n",len);
   return zmq_send(mZmqSend, send_buffer, slen, 0);
 }
 

@@ -66,6 +66,25 @@ typedef volatile unsigned char  const vuc8;   /* Read Only */
 #define FACTORY_ADDRESS 0xFE
 #define _USE_IMU_DATA_ 1
 
+
+
+#define PSD_TAR_DIS 0.02f
+
+#define CAR_MAX_V 0.3f//*SPEED_RATIO
+#define CAR_MAX_W 2.0f//*SPEED_RATIO
+
+#define CAR_WALLFOLLOW_V 0.2f//*SPEED_RATIO
+#define CAR_WALLFOLLOW_AL_V 0.2f//*SPEED_RATIO
+#define CAR_WALLFOLLOW_AL_W (-0.9f)//*SPEED_RATIO
+
+#define CAR_REFLEX_SPIN_W 1.5f
+
+#define CAR_WALLFOLLOW_PID_P   (-0.2f) //(40.0f/sqrt(max(SPEED_RATIO,1.0f)))
+#define CAR_WALLFOLLOW_PID_I   (-1.0f) //(800.0f/max(SPEED_RATIO,1.0f))
+
+#define COLLISION_LAST_TIME    ((int64_t)(600000/3.0f)) //Last 600ms
+#define MOVE_LAST_TIME    ((int64_t)(600000/3.0f)) //Last 600ms
+
 #pragma pack(push, 1)
 
 
@@ -525,6 +544,34 @@ typedef struct {
   uint8_t wifiStatus;				//网络状态			0 表示未联网 1表示已经联网
   uint8_t rev;					//保留
 }CleanCheckStatus;
+
+
+
+
+// fast package
+typedef struct McuFastPackage{
+  McuProtocolHeader header;
+  FastChassisStatusRegister reg;
+  McuFastPackage() {
+    header.deviceAddr = MCU_ADDRESS;
+    header.functionCode = MCU_FAST_STATUS_REG|0x80;
+    header.len = sizeof(reg);
+    header.offset = 0;
+  }
+}McuFastPackage;
+
+// slow package
+typedef struct McuSlowPackage{
+  McuProtocolHeader header;
+  SlowChassisStatusRegister reg;
+  McuSlowPackage() {
+    header.deviceAddr = MCU_ADDRESS;
+    header.functionCode = MCU_SLOW_STATUS_REG|0x80;
+    header.len = sizeof(reg);
+    header.offset = 0;
+  }
+}McuSlowPackage;
+
 
 #pragma pack(pop)
 
