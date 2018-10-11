@@ -34,10 +34,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -105,28 +105,28 @@ CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o.provides: CMa
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o.provides.build: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o
 
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: CMakeFiles/cleanpack_mcu.dir/flags.make
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/cleanpack_mcu/Gazebo2Sensor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o -c /home/huang/gazebo_ws/src/cleanpack_mcu/Gazebo2Sensor.cpp
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: CMakeFiles/cleanpack_mcu.dir/flags.make
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/cleanpack_mcu/GazeboToSensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/huang/gazebo_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o -c /home/huang/gazebo_ws/src/cleanpack_mcu/GazeboToSensor.cpp
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/cleanpack_mcu/Gazebo2Sensor.cpp > CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/huang/gazebo_ws/src/cleanpack_mcu/GazeboToSensor.cpp > CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.i
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/cleanpack_mcu/Gazebo2Sensor.cpp -o CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/huang/gazebo_ws/src/cleanpack_mcu/GazeboToSensor.cpp -o CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.s
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.requires:
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.requires:
 
-.PHONY : CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.requires
+.PHONY : CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.requires
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.provides: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.requires
-	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.provides.build
-.PHONY : CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.provides
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.provides: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.provides.build
+.PHONY : CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.provides
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.provides.build: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.provides.build: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o
 
 
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: CMakeFiles/cleanpack_mcu.dir/flags.make
@@ -277,7 +277,7 @@ CMakeFiles/cleanpack_mcu.dir/src/comm/zmq_port.cpp.o.provides.build: CMakeFiles/
 cleanpack_mcu_OBJECTS = \
 "CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.o" \
 "CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o" \
-"CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o" \
+"CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o" \
 "CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o" \
 "CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.o" \
 "CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.o" \
@@ -290,7 +290,7 @@ cleanpack_mcu_EXTERNAL_OBJECTS =
 
 cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.o
 cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o
-cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o
 cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o
 cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.o
 cleanpack_mcu: CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.o
@@ -314,7 +314,7 @@ CMakeFiles/cleanpack_mcu.dir/build: cleanpack_mcu
 
 CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierCore.cpp.o.requires
 CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o.requires
-CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o.requires
+CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o.requires
 CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o.requires
 CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/comm/ZmqInterface.cpp.o.requires
 CMakeFiles/cleanpack_mcu.dir/requires: CMakeFiles/cleanpack_mcu.dir/src/comm/communication_port.cpp.o.requires

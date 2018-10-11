@@ -114,15 +114,15 @@ void CleanpackUINode::ModeSel(char key) {
 
 void CleanpackUINode::SendControl(float v, float w, bool isAcc){
     uint8_t buffer[80] = {0};
-    CP_HENDER *header = (CP_HENDER *)buffer;
-    CP_CMDVEL *cmd = (CP_CMDVEL *)(buffer+sizeof(CP_HENDER));
-    header->hender = HENDER_XX;
+    CP_HEADER *header = (CP_HEADER *)buffer;
+    CP_CMDVEL *cmd = (CP_CMDVEL *)(buffer+sizeof(CP_HEADER));
+    header->header = HEADER_XX;
     header->len = sizeof(CP_CMDVEL);
     header->type = CP_TYPE::TYPE_CMD_VEL;
     cmd->isAcc = isAcc;
     cmd->v = v*1000;
     cmd->w = w*1000;
-    mControlInterface->send(buffer, sizeof(CP_HENDER)+sizeof(CP_CMDVEL));
+    mControlInterface->send(buffer, sizeof(CP_HEADER)+sizeof(CP_CMDVEL));
 }
 
 void CleanpackUINode::DisplayHelp(){

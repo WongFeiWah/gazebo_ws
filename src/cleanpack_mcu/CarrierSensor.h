@@ -55,11 +55,12 @@ namespace Carrier{
   {
   protected:
   private:
-    Sensor();
+    
     
     CMD_VEL cmdVel_data;
     IMU robot_imu;
     ODOM robot_pose;
+    ODOM robot_start_pose;
 
 
     std::mutex mtx;           // locks access to scan
@@ -76,16 +77,7 @@ namespace Carrier{
     static Sensor *instance;
 
   public:
-    static Sensor* CreateSensor(){
-      if (instance == NULL)
-      {
-        create_mtx.lock();
-        if (instance == NULL)
-          instance = new Sensor();
-        create_mtx.unlock();
-        return instance;
-      }
-    }
+    Sensor();
 
     ~Sensor();
 
@@ -99,9 +91,9 @@ namespace Carrier{
     void setCollider(const float &msg);
     void setAlongWall(const float &msg);
 
-    void setEdgeLeft(const char &msg);
-    void setEdgeMid(const char &msg);
-    void setEdgeRight(const char &msg);
+    void setEdgeLeft(const bool &msg);
+    void setEdgeMid(const bool &msg);
+    void setEdgeRight(const bool &msg);
 
     void setChargerIr(const unsigned short &msg);
     void setChargerInfrarederMidLeft(const unsigned short &msg);

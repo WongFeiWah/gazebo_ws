@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/bin/cmake
+CMAKE_COMMAND = /opt/cmake-3.8.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/bin/cmake -E remove -f
+RM = /opt/cmake-3.8.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/huang/gazebo_ws/build
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/local/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/opt/cmake-3.8.2/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -69,8 +69,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/opt/cmake-3.8.2/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -255,32 +255,32 @@ src/cleanpack_mcu/CarrierSensor.cpp.s:
 	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.s
 .PHONY : src/cleanpack_mcu/CarrierSensor.cpp.s
 
-src/cleanpack_mcu/Gazebo2Sensor.o: src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+src/cleanpack_mcu/GazeboToSensor.o: src/cleanpack_mcu/GazeboToSensor.cpp.o
 
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.o
+.PHONY : src/cleanpack_mcu/GazeboToSensor.o
 
 # target to build an object file
-src/cleanpack_mcu/Gazebo2Sensor.cpp.o:
-	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+src/cleanpack_mcu/GazeboToSensor.cpp.o:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o
+.PHONY : src/cleanpack_mcu/GazeboToSensor.cpp.o
 
-src/cleanpack_mcu/Gazebo2Sensor.i: src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+src/cleanpack_mcu/GazeboToSensor.i: src/cleanpack_mcu/GazeboToSensor.cpp.i
 
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.i
+.PHONY : src/cleanpack_mcu/GazeboToSensor.i
 
 # target to preprocess a source file
-src/cleanpack_mcu/Gazebo2Sensor.cpp.i:
-	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.i
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.i
+src/cleanpack_mcu/GazeboToSensor.cpp.i:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.i
+.PHONY : src/cleanpack_mcu/GazeboToSensor.cpp.i
 
-src/cleanpack_mcu/Gazebo2Sensor.s: src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+src/cleanpack_mcu/GazeboToSensor.s: src/cleanpack_mcu/GazeboToSensor.cpp.s
 
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.s
+.PHONY : src/cleanpack_mcu/GazeboToSensor.s
 
 # target to generate assembly for a file
-src/cleanpack_mcu/Gazebo2Sensor.cpp.s:
-	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.s
-.PHONY : src/cleanpack_mcu/Gazebo2Sensor.cpp.s
+src/cleanpack_mcu/GazeboToSensor.cpp.s:
+	$(MAKE) -f CMakeFiles/cleanpack_mcu.dir/build.make CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.s
+.PHONY : src/cleanpack_mcu/GazeboToSensor.cpp.s
 
 src/cleanpack_mcu/cleanpack_mcu.o: src/cleanpack_mcu/cleanpack_mcu.cpp.o
 
@@ -717,9 +717,9 @@ help:
 	@echo "... src/cleanpack_mcu/CarrierSensor.o"
 	@echo "... src/cleanpack_mcu/CarrierSensor.i"
 	@echo "... src/cleanpack_mcu/CarrierSensor.s"
-	@echo "... src/cleanpack_mcu/Gazebo2Sensor.o"
-	@echo "... src/cleanpack_mcu/Gazebo2Sensor.i"
-	@echo "... src/cleanpack_mcu/Gazebo2Sensor.s"
+	@echo "... src/cleanpack_mcu/GazeboToSensor.o"
+	@echo "... src/cleanpack_mcu/GazeboToSensor.i"
+	@echo "... src/cleanpack_mcu/GazeboToSensor.s"
 	@echo "... src/cleanpack_mcu/cleanpack_mcu.o"
 	@echo "... src/cleanpack_mcu/cleanpack_mcu.i"
 	@echo "... src/cleanpack_mcu/cleanpack_mcu.s"

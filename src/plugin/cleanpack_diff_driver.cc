@@ -233,14 +233,14 @@ namespace gazebo
     void CleanpackDiffDriver::cmdVelCallback ( void *param, const uint8_t *data, uint32_t len)
     {
         boost::mutex::scoped_lock scoped_lock ( lock );
-        CP_HENDER *header = (CP_HENDER*)data;
+        CP_HEADER *header = (CP_HEADER*)data;
         assert(data != NULL);
 
-        if( header->hender != HENDER_XX || header->type != CP_TYPE::TYPE_CMD_VEL){
+        if( header->header != HEADER_XX || header->type != CP_TYPE::TYPE_CMD_VEL){
             return;
         }
 
-        CP_CMDVEL *cmd = (CP_CMDVEL*)(data + sizeof(CP_HENDER));
+        CP_CMDVEL *cmd = (CP_CMDVEL*)(data + sizeof(CP_HEADER));
         x_ = cmd->v/1000.0f;
         rot_ = cmd->w/1000.0f;
 

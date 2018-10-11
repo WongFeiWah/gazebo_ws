@@ -5,6 +5,8 @@
 #include <chrono>
 #include <ctime>
 #include <ratio>
+#include <math.h>
+#include <unistd.h>
 #include <CarrierSensor.h>
 #include <comm/mcu_protocol.h>
 
@@ -57,16 +59,16 @@ void Sensor::setOdom(const ODOM &msg) {
   float dy = msg.y - robot_pose.y;
   this->deltaX += sqrt(dx*dx+dy*dy);
 
-  this->encoderL = robot_pose.pose.covariance[1] - robot_start_pose.pose.covariance[1];
-  this->encoderR = robot_pose.pose.covariance[2] - robot_start_pose.pose.covariance[2];
+  this->encoderL = robot_pose.encoder_left - robot_start_pose.encoder_left;
+  this->encoderR = robot_pose.encoder_right - robot_start_pose.encoder_right;
 }
 
 void Sensor::setImu(const IMU &msg) {
-  float diff_angle = qt.getAngle() - last_qt.getAngle();
+  float diff_angle = 0.0;//t.getAngle() - last_qt.getAngle();
   deltaW += abs(diff_angle);
 
-  float dt = robot_imu.header.stamp.toSec() - msg.header.stamp.toSec();
-  robot_angle += msg.angular_velocity.z*abs(dt);
+  //float dt = robot_imu.header.stamp.toSec() - msg.header.stamp.toSec();
+  //robot_angle += msg.angular_velocity.z*abs(dt);
 
   robot_imu = msg;
 }
@@ -135,21 +137,21 @@ void Sensor::setEdgeRight(const bool &msg) {
   }
 }
 
-void Sensor::setChargerIr(const uint32_t &msg){
+void Sensor::setChargerIr(const unsigned short &msg){
   this->mChargerIr = (u32)msg;
 }
 
 
-void Sensor::setChargerInfrarederMidLeft(const uint32_t &msg){
+void Sensor::setChargerInfrarederMidLeft(const unsigned short &msg){
   this->mChargerIrMidLeft = (u32)msg;
 }
-void Sensor::setChargerInfrarederMidRight(const uint32_t &msg){
+void Sensor::setChargerInfrarederMidRight(const unsigned short &msg){
   this->mChargerIrMidRight = (u32)msg;
 }
-void Sensor::setChargerInfrarederLeft(const uint32_t &msg){
+void Sensor::setChargerInfrarederLeft(const unsigned short &msg){
   this->mChargerIrLeft = (u32)msg;
 }
-void Sensor::setChargerInfrarederRight(const uint32_t &msg){
+void Sensor::setChargerInfrarederRight(const unsigned short &msg){
   this->mChargerIrRight = (u32)msg;
 }
 
@@ -166,7 +168,7 @@ void Sensor::setInfrareders(const float *msg) {
       }
   }
   for (; i < 9; ++i) {
-    if(msg.data[8-i+5] > INFRAREDER_TRIG_DISTANCE)
+    if(msg[8-i+5] > INFRAREDER_TRIG_DISTANCE)
     {
       this->infrareder &= ~(0x0001<<i);
     }
@@ -179,7 +181,7 @@ void Sensor::setInfrareders(const float *msg) {
 
 
 #define INSET_FEEDBACK(sta,bit) (sta==0 ? ~bit : bit)
-void Sensor::setRosControl(const float *msg){
+void Sensor::setRosControl(const char *msg){
 
   /*
   int size = msg.data.size();

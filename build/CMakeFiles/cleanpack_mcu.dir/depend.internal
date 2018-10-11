@@ -16,18 +16,19 @@ CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o
  ../src/comm/mcu_protocol.h
  /home/huang/gazebo_ws/src/cleanpack_mcu/CarrierSensor.cpp
  /usr/local/include/zmq.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o
  ../src/cleanpack_mcu/CarrierSensor.h
- ../src/cleanpack_mcu/Gazebo2Sensor.h
+ ../src/cleanpack_mcu/GazeboToSensor.h
  ../src/comm/ZmqInterface.h
+ ../src/comm/cleanpack_struct.h
  ../src/comm/mcu_protocol.h
  ../src/comm/zmq_defines.h
- /home/huang/gazebo_ws/src/cleanpack_mcu/Gazebo2Sensor.cpp
+ /home/huang/gazebo_ws/src/cleanpack_mcu/GazeboToSensor.cpp
  /usr/local/include/zmq.h
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o
  ../src/cleanpack_mcu/CarrierCore.h
  ../src/cleanpack_mcu/CarrierSensor.h
- ../src/cleanpack_mcu/Gazebo2Sensor.h
+ ../src/cleanpack_mcu/GazeboToSensor.h
  ../src/comm/ZmqInterface.h
  ../src/comm/communication_port.h
  ../src/comm/mcu_package_protocol.h

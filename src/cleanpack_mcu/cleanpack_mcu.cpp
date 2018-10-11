@@ -4,15 +4,15 @@
 
 #include <CarrierCore.h>
 #include <CarrierSensor.h>
-#include <Gazebo2Sensor.h>
+#include <GazeboToSensor.h>
 
 using namespace Carrier;
 
 int main(int argc, char *argv[])
 {
-    Carrier::Sensor* sensor = Carrier::Sensor::CreateSensor();
+    Carrier::Sensor* sensor = new Carrier::Sensor();
     Carrier::CarrierCore core(sensor, "127.0.0.1");
-    Carrier::Gazebo2Sensor gazebo_to_sensor(sensor);
+    Carrier::GazeboToSensor gazebo_to_sensor(sensor);
     sensor->Run();
     return 0;
 }

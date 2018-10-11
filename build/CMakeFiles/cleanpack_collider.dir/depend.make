@@ -23,6 +23,7 @@ CMakeFiles/cleanpack_collider.dir/src/comm/zmq_port.cpp.o: ../src/comm/zmq_port.
 CMakeFiles/cleanpack_collider.dir/src/comm/zmq_port.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o: ../src/comm/ZmqInterface.h
+CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o: ../src/comm/cleanpack_struct.h
 CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o: ../src/comm/update_timer.h
 CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o: ../src/comm/zmq_defines.h
 CMakeFiles/cleanpack_collider.dir/src/plugin/cleanpack_collider.cc.o: ../src/plugin/cleanpack_collider.hh

@@ -31,6 +31,7 @@
 
 #include <gazebo/common/Plugin.hh>
 #include <comm/ZmqInterface.h>
+#include <cleanpack_struct.h>
 #include <update_timer.h>
 
 namespace gazebo
@@ -65,6 +66,7 @@ private:
   double collider_radius_;
 
   ZmqInterface *mSensorInterface;
+  CP_COLLIDER collider_data;
 
   UpdateTimer updateTimer;
   event::ConnectionPtr updateConnection;

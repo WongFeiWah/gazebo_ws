@@ -16,17 +16,18 @@ CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o: ../src/comm/
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o: ../src/cleanpack_mcu/CarrierSensor.cpp
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/CarrierSensor.cpp.o: /usr/local/include/zmq.h
 
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/cleanpack_mcu/CarrierSensor.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/cleanpack_mcu/Gazebo2Sensor.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/comm/ZmqInterface.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/comm/mcu_protocol.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/comm/zmq_defines.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: ../src/cleanpack_mcu/Gazebo2Sensor.cpp
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/Gazebo2Sensor.cpp.o: /usr/local/include/zmq.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/cleanpack_mcu/CarrierSensor.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/cleanpack_mcu/GazeboToSensor.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/comm/ZmqInterface.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/comm/cleanpack_struct.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/comm/mcu_protocol.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/comm/zmq_defines.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: ../src/cleanpack_mcu/GazeboToSensor.cpp
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/GazeboToSensor.cpp.o: /usr/local/include/zmq.h
 
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/cleanpack_mcu/CarrierCore.h
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/cleanpack_mcu/CarrierSensor.h
-CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/cleanpack_mcu/Gazebo2Sensor.h
+CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/cleanpack_mcu/GazeboToSensor.h
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/comm/ZmqInterface.h
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/comm/communication_port.h
 CMakeFiles/cleanpack_mcu.dir/src/cleanpack_mcu/cleanpack_mcu.cpp.o: ../src/comm/mcu_package_protocol.h

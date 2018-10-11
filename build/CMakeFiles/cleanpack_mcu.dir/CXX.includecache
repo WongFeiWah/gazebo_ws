@@ -30,7 +30,7 @@ zmq.h
 comm/mcu_protocol.h
 -
 
-../src/cleanpack_mcu/Gazebo2Sensor.h
+../src/cleanpack_mcu/GazeboToSensor.h
 string
 -
 comm/ZmqInterface.h
@@ -61,6 +61,8 @@ boost/filesystem.hpp
 -
 zmq_defines.h
 -
+
+../src/comm/cleanpack_struct.h
 
 ../src/comm/communication_port.h
 stdint.h
@@ -123,15 +125,21 @@ ctime
 -
 ratio
 -
+math.h
+-
+unistd.h
+-
 CarrierSensor.h
 -
 comm/mcu_protocol.h
 -
 
-/home/huang/gazebo_ws/src/cleanpack_mcu/Gazebo2Sensor.cpp
-Gazebo2Sensor.h
+/home/huang/gazebo_ws/src/cleanpack_mcu/GazeboToSensor.cpp
+GazeboToSensor.h
 -
 CarrierSensor.h
+-
+cleanpack_struct.h
 -
 
 /home/huang/gazebo_ws/src/cleanpack_mcu/cleanpack_mcu.cpp
@@ -139,7 +147,7 @@ CarrierCore.h
 -
 CarrierSensor.h
 -
-Gazebo2Sensor.h
+GazeboToSensor.h
 -
 
 /home/huang/gazebo_ws/src/comm/ZmqInterface.cpp

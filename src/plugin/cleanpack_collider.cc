@@ -112,6 +112,7 @@ void CleanpackCollider::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
   }
 
   mSensorInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, SID_SENSOR);
+  //collider_data.header.len = sizeof(CP_COLLIDER);
   // activate RaySensor
   sensor_->SetActive(true);
 }
@@ -150,6 +151,7 @@ void CleanpackCollider::Update_collider_body()
   unsigned int j = 0;
 
   //collider_angle_.data = M_PI;
+  collider_data.collider_angle = M_PI*1000;
   contact_angle = M_PI;
 
   for (unsigned int i = 0; i < contacts.contact_size(); ++i)
@@ -196,10 +198,12 @@ void CleanpackCollider::Update_collider_body()
     {
       continue;
     }
+    collider_data.collider_angle = contact_angle*1000;
     //collider_angle_.data = contact_angle;
   }
-  printf("collider : %.3f\n",contact_angle);
-    //publisher_.publish(collider_angle_);
+
+  mSensorInterface->send(&collider_data, sizeof(CP_COLLIDER));
+  //printf("collider : %.3f\n",contact_angle);
 }
 
 void CleanpackCollider::Update_collider_charge()
