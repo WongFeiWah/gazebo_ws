@@ -30,15 +30,12 @@ list(APPEND CMAKE_CXX_FLAGS "${GAZEBO_CXX_FLAGS}")
 file(GLOB COMM_CPP_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/comm/*.cpp)
 file(GLOB MCU_CPP_PATH RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} src/cleanpack_mcu/*.cpp)
 
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall -Wextra -pthread -lzmq")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pthread -lzmq")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -Wall -Wextra -pthread -lzmq -g")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra -pthread -lzmq -g")
 
 ##==========================================================================
 ##   lib
 ##==========================================================================
-###################################
-##   diff driver
-###################################
 add_library(cleanpack_diff_driver SHARED src/plugin/cleanpack_diff_driver.cc ${COMM_CPP_PATH})
 target_link_libraries(cleanpack_diff_driver ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
 
@@ -47,6 +44,12 @@ target_link_libraries(cleanpack_lidar ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq
 
 add_library(cleanpack_collider SHARED src/plugin/cleanpack_collider.cc ${COMM_CPP_PATH})
 target_link_libraries(cleanpack_collider ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
+
+add_library(cleanpack_alongwall SHARED src/plugin/cleanpack_alongwall.cc ${COMM_CPP_PATH})
+target_link_libraries(cleanpack_alongwall ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
+
+add_library(cleanpack_imu SHARED src/plugin/cleanpack_imu.cc ${COMM_CPP_PATH})
+target_link_libraries(cleanpack_imu ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES} zmq)
 
 ##==========================================================================
 ##   exec

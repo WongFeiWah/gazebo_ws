@@ -11,6 +11,7 @@
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
 #include <comm/ZmqInterface.h>
+#include <comm/cleanpack_struct.h>
 
 namespace gazebo {
     
@@ -38,6 +39,7 @@ namespace gazebo {
         void getWheelVelocities();
         void UpdateOdometryEncoder();
         void cmdVelCallback ( void *param, const uint8_t *data, uint32_t len);
+        void publicOdom();
         
         
         physics::ModelPtr parent;
@@ -93,6 +95,8 @@ namespace gazebo {
         bool publishOdomTF_;
         bool publishWheelJointState_;
         
+        ZmqInterface *mSensorInterface;
+        CP_ODOM odom_data;
     };
     
 }

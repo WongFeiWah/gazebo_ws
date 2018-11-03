@@ -7,7 +7,7 @@
 
 #include <gazebo/math/gzmath.hh>
 #include <sdf/sdf.hh>
-#include <comm/cleanpack_struct.h>
+
 
 
 namespace gazebo
@@ -29,35 +29,13 @@ namespace gazebo
         
         this->parent = _parent;
       printf("CleanpackDiffDriver Load.\n");
-        /*
-        gazebo_ros_ = GazeboRosPtr ( new GazeboRos ( _parent, _sdf, "DiffDrive" ) );
-        // Make sure the ROS node for Gazebo has already been initialized
-        gazebo_ros_->isInitialized();
         
-        gazebo_ros_->getParameter<std::string> ( command_topic_, "commandTopic", "cmd_vel" );
-        gazebo_ros_->getParameter<std::string> ( odometry_topic_, "odometryTopic", "odom" );
-        gazebo_ros_->getParameter<std::string> ( odometry_frame_, "odometryFrame", "odom" );
-        gazebo_ros_->getParameter<std::string> ( robot_base_frame_, "robotBaseFrame", "base_footprint" );
-        gazebo_ros_->getParameterBoolean ( publishWheelTF_, "publishWheelTF", false );
-        gazebo_ros_->getParameterBoolean ( publishWheelJointState_, "publishWheelJointState", false );
-        gazebo_ros_->getParameterBoolean ( legacy_mode_, "legacyMode", true );
-        
-        if (!_sdf->HasElement("legacyMode"))
-        {
-            gzerr << "GazeboRosDiffDrive Plugin missing <legacyMode>, defaults to true\n"
-                              "This setting assumes you have a old package, where the right and left wheel are changed to fix a former code issue\n"
-                              "To get rid of this error just set <legacyMode> to false if you just created a new package.\n"
-                              "To fix an old package you have to exchange left wheel by the right wheel.\n"
-                              "If you do not want to fix this issue in an old package or your z axis points down instead of the ROS standard defined in REP 103\n"
-                              "just set <legacyMode> to true.\n"
-            ;
-        }
-    */
         wheel_separation_ = 0.24;
         wheel_diameter_ = 0.07;
         wheel_accel = 1.2;
         wheel_torque = 24;
         odom_source_ = ENCODER;
+        update_rate_ = 50;
         
         
         joints_.resize ( 2 );
@@ -96,17 +74,15 @@ namespace gazebo
                 event::Events::ConnectWorldUpdateBegin ( boost::bind ( &CleanpackDiffDriver::UpdateChild, this ) );
 
 
-        mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::RECV, 7888);
+        mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::RECV, SID_CONTROL);
         mControlInterface->setCallBack(&CleanpackDiffDriver::cmdVelCallback, this);
         mControlInterface->Start();
-        
+        mSensorInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, SID_SENSOR);
     }
     
     void CleanpackDiffDriver::Reset()
     {
         last_update_time_ = parent->GetWorld()->GetSimTime();
-        
-        
         
         x_ = 0;
         rot_ = 0;
@@ -132,7 +108,7 @@ namespace gazebo
         for ( int i = 0; i < 2; i++ ) {
 #if GAZEBO_MAJOR_VERSION > 2
             if ( fabs(wheel_torque -joints_[i]->GetParam ( "fmax", 0 )) > 1e-6 ) {
-        joints_[i]->SetParam ( "fmax", 0, wheel_torque );
+                joints_[i]->SetParam ( "fmax", 0, wheel_torque );
 #else
             if ( fabs(wheel_torque -joints_[i]->GetMaxForce ( 0 )) > 1e-6 ) {
                 joints_[i]->SetMaxForce ( 0, wheel_torque );
@@ -146,6 +122,7 @@ namespace gazebo
         double seconds_since_last_update = ( current_time - last_update_time_ ).Double();
         
         if ( seconds_since_last_update > update_period_ ) {
+            publicOdom();
             
             // Update robot in case new velocities have been requested
             getWheelVelocities();
@@ -275,43 +252,26 @@ namespace gazebo
         // Book: Sigwart 2011 Autonompus Mobile Robots page:337
         double sl = vl * ( wheel_diameter_ / 2.0 ) * seconds_since_last_update;
         double sr = vr * ( wheel_diameter_ / 2.0 ) * seconds_since_last_update;
-        double ssum = sl + sr;
         
-        //odom_.pose.covariance[1] += sl*1000.0f;
-        //odom_.pose.covariance[2] += sr*1000.0f;
+        odom_data.odom.encoder_left += sl*1000.0f;
+        odom_data.odom.encoder_right += sr*1000.0f;
+    }
+
+    void CleanpackDiffDriver::publicOdom(){
+        math::Pose pose = parent->GetWorldPose();
+        math::Vector3 linear;
+        float yaw = pose.rot.GetYaw();
+        linear = parent->GetWorldLinearVel();
         
-        
-        double sdiff;
-        if(legacy_mode_)
-        {
-            sdiff = sl - sr;
-        }
-        else
-        {
-            
-            sdiff = sr - sl;
-        }
-        
-        double dx = ( ssum ) /2.0 * cos ( encoder_theta + ( sdiff ) / ( 2.0*b ) );
-        double dy = ( ssum ) /2.0 * sin ( encoder_theta + ( sdiff ) / ( 2.0*b ) );
-        double dtheta = ( sdiff ) /b;
-        
-        encoder_x += dx;
-        encoder_y += dy;
-        encoder_theta += dtheta;
-        
-        double ddx = sqrt ( dx*dx+dy*dy );
-        double w = dtheta/seconds_since_last_update;
-        double v = ddx/seconds_since_last_update;
-        
-        //odom_.pose.covariance[3] = ddx;
-        //odom_.pose.covariance[4] = dtheta;
-        
-        odom_ = math::Pose(encoder_x, encoder_y, 0,    0, 0, encoder_theta);
-        
-        //odom_.twist.twist.angular.z = w;
-        //odom_.twist.twist.linear.x = dx/seconds_since_last_update;
-        //odom_.twist.twist.linear.y = dy/seconds_since_last_update;
+        odom_data.odom.x = pose.pos.x;
+        odom_data.odom.y = pose.pos.y;
+        odom_data.odom.z = pose.pos.z;
+        odom_data.odom.v = cosf ( yaw ) * linear.x + sinf ( yaw ) * linear.y;
+        odom_data.odom.w = parent->GetWorldAngularVel().z;
+
+        //gzmsg << "odom " << odom_data.odom.x << " " << odom_data.odom.y << "\n";
+ 
+        mSensorInterface->send(&odom_data, sizeof(CP_ODOM)); 
     }
     
     

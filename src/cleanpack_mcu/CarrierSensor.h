@@ -9,6 +9,7 @@
 #include <mutex>
 #include <zmq.h>
 #include <comm/mcu_protocol.h>
+#include "comm/ZmqInterface.h"
 
 #define GETDISTANCE(x1,y1,x2,y2) ( sqrt( ( (x1-x2)*(x1-x2) + (y1-y2)*(y1-y2) )) )
 #define INFRAREDER_TRIG_DISTANCE (0.03+0.175)
@@ -16,39 +17,47 @@
 #define CHECKERROR(x, L, err) ( ( x > (L+err) || x < (L-err) ) ? false : true  )
 #define LIMITANGLE(angle) (angle < 0.0f ? (M_PI*2.0f + angle) : angle)
 
+#pragma pack(push, 1)
+
+typedef struct cmd_vel_struct{
+  bool isAcc;
+  float v;
+  float w;
+}CMD_VEL;
+
+typedef struct imu_struct{
+  float x;
+  float y;
+  float z;
+  float w;
+
+  float yaw;
+
+  float acc_x;
+  float acc_y;
+  float acc_z;
+
+  float gyro_x;
+  float gyro_y;
+  float gyro_z;
+}IMU;
+
+typedef struct odom_struct{
+  int encoder_left;
+  int encoder_right;
+
+  float x;
+  float y;
+  float z;
+
+  float v;
+  float w;
+}ODOM;
+
+#pragma pack(pop)
+
 namespace Carrier{
-  typedef struct cmd_vel_struct{
-    bool isAcc;
-    float v;
-    float w;
-  }CMD_VEL;
-
-  typedef struct imu_struct{
-    float x;
-    float y;
-    float z;
-    float w;
-
-    float acc_x;
-    float acc_y;
-    float acc_z;
-
-    float gyro_x;
-    float gyro_y;
-    float gyro_z;
-  }IMU;
-
-  typedef struct odom_struct{
-    int encoder_left;
-    int encoder_right;
-
-    float x;
-    float y;
-    float z;
-
-    float v;
-    float w;
-  }ODOM;
+  
 
 
   class Sensor
@@ -64,8 +73,7 @@ namespace Carrier{
 
 
     std::mutex mtx;           // locks access to scan
-    void *zmq_context;
-    void *zmq_publisher;
+    ZmqInterface *mControlInterface;
 
     // ros param
     std::string mBridgePortName;
@@ -101,6 +109,8 @@ namespace Carrier{
     void setChargerInfrarederLeft(const unsigned short &msg);
     void setChargerInfrarederRight(const unsigned short &msg);
     void setInfrareders(const float *msg);
+    void setHomeKey(const bool msg);
+    void setPowerKey(const bool msg);
     void Run();
 
     void setRosControl(const char *msg);

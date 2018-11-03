@@ -123,7 +123,7 @@ bool ZmqInterface::Start(){
         while (!this_->isStop)
         {
             int len = zmq_recv(this_->mZmqRecv, buffer, 1024, 0);
-            if(len > 0){
+            if(len > 0 && this_->mProcFunc != nullptr){
                 this_->mProcFunc(this_->callbackParam, buffer, len);
             }
         }

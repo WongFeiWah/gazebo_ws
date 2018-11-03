@@ -18,6 +18,7 @@ private:
     bool isPickUp;
     bool isTest_Turn_PI;
     ZmqInterface *mControlInterface;
+    ZmqInterface *mSensorInterface;
     
 public:
     CleanpackUINode();
@@ -33,7 +34,8 @@ CleanpackUINode::CleanpackUINode(){
     this->keyPower = false;
     this->keyHome = false;
     this->isPickUp = false;
-    mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, 7888);
+    mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, SID_CONTROL);
+    mSensorInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, SID_SENSOR);
 }
 CleanpackUINode::~CleanpackUINode(){
     

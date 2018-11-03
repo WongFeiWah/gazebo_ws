@@ -98,7 +98,7 @@ namespace Carrier{
     // Bridge
     CommunicationPort *mBridge;
     static void OnBridgePublisher(void *param);
-    static void OnBridgeSubscriber(void *param, const uint8_t *data, uint32_t len);
+    void OnBridgeSubscriber(void *param, const uint8_t *data, uint32_t len);
 
   };
 }

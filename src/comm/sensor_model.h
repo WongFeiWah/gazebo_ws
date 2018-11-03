@@ -34,12 +34,12 @@
 #include <gazebo/math/Vector3.hh>
 #endif
 
-#include <hector_gazebo_plugins/SensorModelConfig.h>
+//#include <hector_gazebo_plugins/SensorModelConfig.h>
 #include <numeric>
 
 namespace gazebo {
 
-using hector_gazebo_plugins::SensorModelConfig;
+//using hector_gazebo_plugins::SensorModelConfig;
 
 template <typename T>
 class SensorModel_ {
@@ -63,7 +63,7 @@ public:
 
   virtual void setCurrentDrift(const T& new_drift) { current_drift_ = new_drift; }
 
-  virtual void dynamicReconfigureCallback(SensorModelConfig &config, uint32_t level);
+  //virtual void dynamicReconfigureCallback(SensorModelConfig &config, uint32_t level);
 
 private:
   virtual bool LoadImpl(sdf::ElementPtr _element, T& _value);
@@ -237,7 +237,7 @@ namespace helpers {
   template <> struct scalar_value<math::Vector3> { static double toDouble(const math::Vector3 &orig) { return (orig.x + orig.y + orig.z) / 3; } };
 #endif
 }
-
+/*
 template <typename T>
 void SensorModel_<T>::dynamicReconfigureCallback(SensorModelConfig &config, uint32_t level)
 {
@@ -255,6 +255,7 @@ void SensorModel_<T>::dynamicReconfigureCallback(SensorModelConfig &config, uint
     config.scale_error     = helpers::scalar_value<T>::toDouble(scale_error);
   }
 }
+*/
 
 typedef SensorModel_<double> SensorModel;
 #if (GAZEBO_MAJOR_VERSION >= 8)

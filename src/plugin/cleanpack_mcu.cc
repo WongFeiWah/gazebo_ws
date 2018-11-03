@@ -30,10 +30,6 @@ namespace gazebo
         this->parent = _parent;
         gzmsg << "CleanpackMcu Load.\n";
         
-        
-        
-        
-        
         // Initialize update rate stuff
         if ( this->update_rate_ > 0.0 ) this->update_period_ = 1.0 / this->update_rate_;
         else this->update_period_ = 0.0;

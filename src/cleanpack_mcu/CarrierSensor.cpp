@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <CarrierSensor.h>
 #include <comm/mcu_protocol.h>
+#include "comm/cleanpack_struct.h"
 
 using namespace Carrier;
 using namespace std::chrono;
@@ -16,8 +17,16 @@ using namespace std::chrono;
 Sensor* Sensor::instance = NULL;
 
 uint64_t Carrier::NowTime() {
+  static long start_time = 0;
   uint64_t time_;
-  time_ = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+  if(start_time == 0){
+    start_time = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+    time_ = start_time;
+  }else {
+    time_ = std::chrono::duration_cast<std::chrono::microseconds>(std::chrono::high_resolution_clock::now().time_since_epoch()).count();
+  }
+  time_ = time_ - start_time;
+
   return time_;
 }
 
@@ -44,6 +53,7 @@ Sensor::Sensor()
   isStop = true;
 
   tick = 0;
+  mControlInterface = new ZmqInterface(ZMQ_PP_TYPE::SEND, SID_CONTROL);
 
   isStop = false;
 }
@@ -61,16 +71,24 @@ void Sensor::setOdom(const ODOM &msg) {
 
   this->encoderL = robot_pose.encoder_left - robot_start_pose.encoder_left;
   this->encoderR = robot_pose.encoder_right - robot_start_pose.encoder_right;
+
+  memcpy(&robot_pose, &msg, sizeof(ODOM));
 }
 
 void Sensor::setImu(const IMU &msg) {
-  float diff_angle = 0.0;//t.getAngle() - last_qt.getAngle();
-  deltaW += abs(diff_angle);
+  static long last_tick_ms = 0;
+  long cur_tick_ms = Carrier::NowTime();
 
-  //float dt = robot_imu.header.stamp.toSec() - msg.header.stamp.toSec();
-  //robot_angle += msg.angular_velocity.z*abs(dt);
+  float diff_angle = msg.yaw - robot_imu.yaw;
+  deltaW += fabs(diff_angle);
 
-  robot_imu = msg;
+  if(last_tick_ms == 0) last_tick_ms = cur_tick_ms;
+  float dt = cur_tick_ms/1000000.0f - last_tick_ms/1000000.0f;
+  robot_angle += (int)(msg.gyro_z*100.0f)/100.0f *fabs(dt);
+
+  memcpy(&robot_imu, &msg, sizeof(IMU));
+  last_tick_ms = cur_tick_ms;
+  printf("angle : %.3f %.3f\n", robot_angle, (int)(msg.gyro_z*100.0f)/100.0f);
 }
 
 void Sensor::setChargeLeft(const char &msg) {
@@ -213,6 +231,16 @@ void Sensor::PubControl(float w, float v, bool isAcc) {
     cmdVel_data.v = v;
     cmdVel_data.w = w;
     cmdVel_data.isAcc = isAcc;
+    uint8_t buffer[80] = {0};
+    CP_HEADER *header = (CP_HEADER *)buffer;
+    CP_CMDVEL *cmd = (CP_CMDVEL *)(buffer+sizeof(CP_HEADER));
+    header->header = HEADER_XX;
+    header->len = sizeof(CP_CMDVEL);
+    header->type = CP_TYPE::TYPE_CMD_VEL;
+    cmd->isAcc = isAcc;
+    cmd->v = v*1000;
+    cmd->w = w*1000;
+    mControlInterface->send(buffer, sizeof(CP_HEADER)+sizeof(CP_CMDVEL));
 }
 
 void Sensor::updateMcuSlowPacket(McuSlowPackage &package) {
@@ -338,7 +366,8 @@ void Sensor::TestTurn(float v, float w, float angle){
 
 void Sensor::Run() {
   while(1){
-      //tick = ros::Time::now().toNSec()/1000000;
+      tick = Carrier::NowTime()/1000;
+      //printf("tick : %d\n",tick);
       usleep(1000);
   }
 

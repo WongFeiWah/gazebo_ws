@@ -58,6 +58,7 @@ CleanpackCollider::~CleanpackCollider()
 // Load the controller
 void CleanpackCollider::Load(sensors::SensorPtr _sensor, sdf::ElementPtr _sdf)
 {
+  gzmsg << "CleanpackCollider::Load.\n";
   // Get then name of the parent sensor
   sensor_ = std::dynamic_pointer_cast<sensors::ContactSensor>(_sensor);
   if (!sensor_)

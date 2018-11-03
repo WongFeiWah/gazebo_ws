@@ -21,7 +21,7 @@ CarrierCore::CarrierCore(void *sensor_handler, char *bridgeName)
   }
 
   this->mBridge = (CommunicationPort*)(new ZmqPort(bridgeName,SID_ROS_SIMULATION_MCU_TO_CARRIER, SID_ROS_SIMULATION_CARRIER_TO_MCU));
-  //((ZmqPort*)mBridge)->setCallBack(&CarrierCore::OnBridgeSubscriber, this);
+  ((ZmqPort*)mBridge)->setCallBack(&Carrier::CarrierCore::OnBridgeSubscriber, this);
   ((ZmqPort*)mBridge)->Start();
 
   memset(&mCtrlPackage, 0, sizeof(ChassisControlRegister));
@@ -33,13 +33,13 @@ CarrierCore::CarrierCore(void *sensor_handler, char *bridgeName)
 }
 
 CarrierCore::~CarrierCore() {
-  if(!mMoveModeThread)
+  if(mMoveModeThread)
     delete mMoveModeThread;
 
-  if(!mDeltaMoveThread)
+  if(mDeltaMoveThread)
     delete mDeltaMoveThread;
 
-  if(!mBridgePublisherThread)
+  if(mBridgePublisherThread)
     delete mBridgePublisherThread;
 
   ((ZmqPort*)mBridge)->Stop();
@@ -139,6 +139,7 @@ void CarrierCore::OnMoveMode(void *param) {
     std::this_thread::sleep_for(std::chrono::milliseconds(3));
     //********************************************
     //** step 0: Idle handle Code Block
+    /*
     if( MOVE_LAST_TIME < (Carrier::NowTime() - this_->mLastMoveControlTime) ){
       if( !this_->is_steping ){
         this_->move_set_w = 0.0f;
@@ -146,6 +147,7 @@ void CarrierCore::OnMoveMode(void *param) {
         this_->StopMove();
       }
     }
+    */
     //********************************************
     //** step 0: Drop handle Code Block
     
@@ -393,11 +395,10 @@ void CarrierCore::OnBridgePublisher(void *param) {
 }
 
 void CarrierCore::OnBridgeSubscriber(void *param, const uint8_t *data, uint32_t len) {
-  CarrierCore *this_ = (CarrierCore*)param;
   for(uint32_t i = 0; i<len;i++){
-    if (this_->mMcuPackageProtocol->PushByte(data[i]) > 0) {
-      this_->ProcessMcuPackage(this_->mMcuPackageProtocol->GetRxPackageBuffer(),
-                        this_->mMcuPackageProtocol->GetPackageSize());
+    if (this->mMcuPackageProtocol->PushByte(data[i]) > 0) {
+      this->ProcessMcuPackage(this->mMcuPackageProtocol->GetRxPackageBuffer(),
+                        this->mMcuPackageProtocol->GetPackageSize());
     }
   }
 }
