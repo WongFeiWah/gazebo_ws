@@ -110,8 +110,10 @@ void CleanpackUINode::ModeSel(char key) {
         default:
             break;
     }
-    
-    
+    CP_KEY keyData;
+    keyData.key1 = keyHome;
+    keyData.key2 = keyPower;
+    mSensorInterface->send(&keyData, sizeof(CP_KEY));
 }
 
 void CleanpackUINode::SendControl(float v, float w, bool isAcc){

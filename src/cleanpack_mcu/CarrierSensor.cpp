@@ -197,6 +197,16 @@ void Sensor::setInfrareders(const float *msg) {
   }
 }
 
+void Sensor::setHomeKey(bool msg){
+  if(msg) feedbackStatus |= STATUS_KEY1;
+  else feedbackStatus &= ~STATUS_KEY1;// clear bit
+}
+
+void Sensor::setPowerKey(bool msg){
+  if(msg) feedbackStatus |= STATUS_KEY2;
+  else feedbackStatus &= ~STATUS_KEY2;// clear bit
+}
+
 
 #define INSET_FEEDBACK(sta,bit) (sta==0 ? ~bit : bit)
 void Sensor::setRosControl(const char *msg){

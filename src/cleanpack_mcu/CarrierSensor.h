@@ -109,8 +109,8 @@ namespace Carrier{
     void setChargerInfrarederLeft(const unsigned short &msg);
     void setChargerInfrarederRight(const unsigned short &msg);
     void setInfrareders(const float *msg);
-    void setHomeKey(const bool msg);
-    void setPowerKey(const bool msg);
+    void setHomeKey(bool msg);
+    void setPowerKey(bool msg);
     void Run();
 
     void setRosControl(const char *msg);

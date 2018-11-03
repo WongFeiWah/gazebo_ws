@@ -139,7 +139,7 @@ void CarrierCore::OnMoveMode(void *param) {
     std::this_thread::sleep_for(std::chrono::milliseconds(3));
     //********************************************
     //** step 0: Idle handle Code Block
-    /*
+    
     if( MOVE_LAST_TIME < (Carrier::NowTime() - this_->mLastMoveControlTime) ){
       if( !this_->is_steping ){
         this_->move_set_w = 0.0f;
@@ -147,7 +147,7 @@ void CarrierCore::OnMoveMode(void *param) {
         this_->StopMove();
       }
     }
-    */
+    
     //********************************************
     //** step 0: Drop handle Code Block
     

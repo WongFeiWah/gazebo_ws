@@ -216,10 +216,10 @@ void CleanpackImu::Update()
   rate  = rateModel(rate, dt);
   yawModel.update(dt);
 
-  printf("\e[1;30m" "q:\nx %.4f\ny %.4f\nz %.4f\nw %.4f\n", rot.x, rot.y, rot.z, rot.w);
-  printf("\e[1;31m" "acc:\nx %.4f\ny %.4f\nz %.4f\n", accel.x, accel.y, accel.z);
-  printf("\e[1;32m" "rate:\nx %.4f\ny %.4f\nz %.4f\n", rate.x, rate.y, rate.z);
-  printf("\e[0m");
+  //printf("\e[1;30m" "q:\nx %.4f\ny %.4f\nz %.4f\nw %.4f\n", rot.x, rot.y, rot.z, rot.w);
+  //printf("\e[1;31m" "acc:\nx %.4f\ny %.4f\nz %.4f\n", accel.x, accel.y, accel.z);
+  //printf("\e[1;32m" "rate:\nx %.4f\ny %.4f\nz %.4f\n", rate.x, rate.y, rate.z);
+  //printf("\e[0m");
   
   imu_data.imu.acc_x = accel.x;
   imu_data.imu.acc_y = accel.y;

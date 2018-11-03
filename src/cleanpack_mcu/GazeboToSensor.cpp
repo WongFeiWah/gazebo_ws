@@ -48,6 +48,12 @@ void GazeboToSensor::callback(void *param, const uint8_t *data, uint32_t len){
             sensor->setAlongWall(distance);
             break;
         }
+        case CP_TYPE::TYPE_KEY:{
+            CP_KEY *PData = (CP_KEY *)data;
+            sensor->setHomeKey(PData->key1);
+            sensor->setPowerKey(PData->key2);
+            break;
+        }
         default:break;
     }
 
